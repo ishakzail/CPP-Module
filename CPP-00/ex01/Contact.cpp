@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:38:16 by izail             #+#    #+#             */
-/*   Updated: 2022/08/10 02:10:07 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/10 23:35:55 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,54 +14,52 @@
 
 #include "Contact.hpp"
 
-using namespace std;
-
-void Contact::setFirstName(string firstname)
+void Contact::setFirstName(std::string firstname)
 {
     this->firstName = firstName;
 }
 
-void Contact::setLastName(string lastname)
+void Contact::setLastName(std::string lastname)
 {
     this->lastName = lastname;
 }
 
-void Contact::setNickName(string nickname)
+void Contact::setNickName(std::string nickname)
 {
     this->nickName = nickname;
 }
 
-void Contact::setPhoneNumber(string phonenumber)
+void Contact::setPhoneNumber(std::string phonenumber)
 {
     this->phoneNumber = phonenumber;
 }
 
-void Contact::setDarkestSecret(string darkestsecret)
+void Contact::setDarkestSecret(std::string darkestsecret)
 {
     this->darkestSecret =darkestsecret;
 }
 
-string Contact::getFirstName()
+std::string Contact::getFirstName()
 {
     return this->firstName;
 }
 
-string Contact::getLastName()
+std::string Contact::getLastName()
 {
     return this->lastName;
 }
 
-string Contact::getNickName()
+std::string Contact::getNickName()
 {
     return this->nickName;
 }
 
-string Contact::getPhoneNumber()
+std::string Contact::getPhoneNumber()
 {
     return this->phoneNumber;
 }
 
-string Contact::getDarkestSecret()
+std::string Contact::getDarkestSecret()
 {
     return this->darkestSecret;
 }

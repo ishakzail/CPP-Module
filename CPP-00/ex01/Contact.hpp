@@ -6,33 +6,31 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:38:35 by izail             #+#    #+#             */
-/*   Updated: 2022/08/10 02:11:29 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/10 23:35:36 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-using namespace std;
 
 class Contact
 {
     private :
-        string firstName;
-        string lastName;
-        string nickName;
-        string phoneNumber;
-        string darkestSecret;
+        std::string firstName;
+        std::string lastName;
+        std::string nickName;
+        std::string phoneNumber;
+        std::string darkestSecret;
     public : 
         Contact(void){};
         ~Contact(void){};
 
-        void    setLastName(string lastname);
-        void    setFirstName(string firstname);
-        void    setNickName(string nickname);
-        void    setPhoneNumber(string phonenumber);
-        void    setDarkestSecret(string darkestsecret);
+        void    setLastName(std::string lastname);
+        void    setFirstName(std::string firstname);
+        void    setNickName(std::string nickname);
+        void    setPhoneNumber(std::string phonenumber);
+        void    setDarkestSecret(std::string darkestsecret);
 
-        string  getLastName();
-        string  getFirstName();
-        string  getNickName();
-        string  getPhoneNumber();
-        string  getDarkestSecret();
+        std::string  getLastName();
+        std::string  getFirstName();
+        std::string  getNickName();
+        std::string  getPhoneNumber();
+        std::string  getDarkestSecret();
 };
