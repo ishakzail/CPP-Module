@@ -6,7 +6,7 @@
 #    By: izail <izail@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 02:25:57 by izail             #+#    #+#              #
-#    Updated: 2022/08/11 00:02:54 by izail            ###   ########.fr        #
+#    Updated: 2022/08/12 00:57:24 by izail            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FLAGS = -Wall -Werror -Wextra
 
 SRC = Contact.cpp PhoneBook.cpp main.cpp
 
-HEADER = Contact.hpp PhoneBook.hpp
+HEADER = PhoneBook.hpp Contact.hpp
 
 OBJ = $(SRC:%.cpp=%.o)
 

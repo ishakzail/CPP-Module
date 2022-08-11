@@ -6,11 +6,12 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:38:35 by izail             #+#    #+#             */
-/*   Updated: 2022/08/10 23:48:49 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/12 00:57:41 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 
 class Contact
 {
