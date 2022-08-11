@@ -6,17 +6,15 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:38:16 by izail             #+#    #+#             */
-/*   Updated: 2022/08/10 23:35:55 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/11 00:02:03 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <iostream>
 
 #include "Contact.hpp"
 
 void Contact::setFirstName(std::string firstname)
 {
-    this->firstName = firstName;
+    this->firstName = firstname;
 }
 
 void Contact::setLastName(std::string lastname)
