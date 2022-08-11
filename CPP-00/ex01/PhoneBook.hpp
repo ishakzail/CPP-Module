@@ -10,14 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-using namespace std;
-
 #include "Contact.hpp"
 
 class PhoneBook
 {
     private :
         Contact _Contact[8];
+        int     nbr_contacts;
     
     public :
         PhoneBook(void){};
