@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:12 by izail             #+#    #+#             */
-/*   Updated: 2022/08/12 04:57:15 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/12 09:56:34 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,15 @@ int main() {
     while (std::cin >> mac)
     {
         // std::cout << "input value == " << mac << std::endl;
-        if (mac.compare("ADD") != 0 && mac.compare("SEARCH") != 0)
+        if (mac.compare("EXIT") == 0 )
+            exit(0);
+        else if (mac.compare("ADD") != 0 && mac.compare("SEARCH") != 0)
             std::cout << "You can only search or add a contact"<< std::endl;
         else
         {
             std::cout << "Great you can add a contact to the list !" << std::endl;
             P1.addContact();
-            P1.printContact(P1);
+            P1.printContact();
         }
         
          // std::cout << "value == " << mac << std::endl;
