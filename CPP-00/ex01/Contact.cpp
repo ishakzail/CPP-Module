@@ -6,11 +6,19 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:38:16 by izail             #+#    #+#             */
-/*   Updated: 2022/08/12 09:23:51 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/13 16:27:47 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+
+// Contact::Contact(void)
+// {
+//     for (int i = 0; i < 5; i++)
+//     {
+//         this->infos[i] = std::string();
+//     }   
+// }
 
 void Contact::setFirstName(std::string firstname)
 {
@@ -61,3 +69,23 @@ std::string Contact::getDarkestSecret()
 {
     return this->darkestSecret;
 }
+
+void Contact::setIndex(int nbr)
+{
+    this->index = nbr;
+}
+
+int Contact::getIndex()
+{
+    return this->index;
+}
+
+// void Contact::setInformations(int idx)
+// {
+//     this->index = idx;
+//     for (int i = 0; i < 5; i++)
+//     {
+//         std::cout << "Enter || " << Contact::infos[i] << std::endl;
+//         std::getline(std::cin, this->infos[i]);
+//     }
+// }

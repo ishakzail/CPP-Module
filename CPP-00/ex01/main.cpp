@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:12 by izail             #+#    #+#             */
-/*   Updated: 2022/08/12 09:56:34 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/13 09:52:03 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int main() {
         {
             std::cout << "Great you can add a contact to the list !" << std::endl;
             P1.addContact();
+            // P1.setNbr(4);
             P1.printContact();
         }
         
