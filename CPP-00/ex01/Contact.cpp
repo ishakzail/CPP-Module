@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:38:16 by izail             #+#    #+#             */
-/*   Updated: 2022/08/13 16:27:47 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/14 13:13:25 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,20 @@
 
 void Contact::setFirstName(std::string firstname)
 {
+
     this->firstName = firstname;
 }
 
 void Contact::setLastName(std::string lastname)
 {
-    this->lastName = lastname;
+    if (lastname.length() <= 10)
+        this->lastName = lastname;
+    else
+    {
+        std::cout << "Firstname field must contain less than 10 characters" << std::endl;
+        return;
+    }
+        
 }
 
 void Contact::setNickName(std::string nickname)
@@ -42,7 +50,7 @@ void Contact::setPhoneNumber(std::string phonenumber)
 
 void Contact::setDarkestSecret(std::string darkestsecret)
 {
-    this->darkestSecret =darkestsecret;
+    this->darkestSecret = darkestsecret;
 }
 
 std::string Contact::getFirstName()
@@ -79,13 +87,3 @@ int Contact::getIndex()
 {
     return this->index;
 }
-
-// void Contact::setInformations(int idx)
-// {
-//     this->index = idx;
-//     for (int i = 0; i < 5; i++)
-//     {
-//         std::cout << "Enter || " << Contact::infos[i] << std::endl;
-//         std::getline(std::cin, this->infos[i]);
-//     }
-// }

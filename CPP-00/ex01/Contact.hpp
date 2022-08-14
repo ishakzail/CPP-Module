@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:38:35 by izail             #+#    #+#             */
-/*   Updated: 2022/08/13 16:27:06 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/14 11:24:49 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ class Contact
 {
     private :
         int         index;
-        // std::string infos[5];
         std::string firstName;
         std::string lastName;
         std::string nickName;
@@ -41,5 +40,6 @@ class Contact
 
         void    setIndex(int idx);
         int     getIndex();
+
         // void    setInformations(int idx);
 };
