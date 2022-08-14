@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:06 by izail             #+#    #+#             */
-/*   Updated: 2022/08/13 17:02:44 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/14 13:12:28 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,13 @@ int PhoneBook::getNbrContact()
     return  this->nbr_contacts;
 }
 
-void    PhoneBook::addContact()
+void PhoneBook::get_info(int idx)
 {
     std::string _firstname;
     std::string _lastname;
     std::string _nickname;
     std::string _phonenumber;
     std::string _darketsecret;
-    // i have to create an instance of phonebook Class in order to store the contacts in table inside it.
     
     std::cout << "Enter first name :" << std::endl;
     std::cin >> _firstname;
@@ -73,25 +72,33 @@ void    PhoneBook::addContact()
     std::cin >> _phonenumber;
     std::cout << "Enter darket secret :" << std::endl;
     std::cin >> _darketsecret;
-    if ( i == 8)
-    {
-        this->contacts[i].setIndex(0);
-        this->contacts[i].setFirstName(NULL);
-        this->contacts[i].setLastName(NULL);
-        this->contacts[i].setNickName(NULL);
-        this->contacts[i].setPhoneNumber(NULL);
-        this->contacts[i].setDarkestSecret(NULL);
-    }
-        
-    this->contacts[i].setFirstName(_firstname);
-    this->contacts[i].setLastName(_lastname);
-    this->contacts[i].setNickName(_nickname);
-    this->contacts[i].setPhoneNumber(_phonenumber);
-    this->contacts[i].setDarkestSecret(_darketsecret);
-    this->contacts[i].setIndex(i);
+
+    this->contacts[idx].setFirstName(_firstname);
+    this->contacts[idx].setLastName(_lastname);
+    this->contacts[idx].setNickName(_nickname);
+    this->contacts[idx].setPhoneNumber(_phonenumber);
+    this->contacts[idx].setDarkestSecret(_darketsecret);
+    this->contacts[idx].setIndex(idx);
+
+}
+
+// int    PhoneBook::check_values(int idx)
+// {
+//     if (this->contacts[idx].getFirstName().length() > 10)
+//     {
+//         std::cout << "Firstname field must contain less than 10 characters" << std::endl;
+//         return (0);
+//     }    
+// }
+
+void    PhoneBook::addContact()
+{
+    if (i == 8)
+        i = 0;
+    this->get_info(i);
     i++;
     setNbrContact(i);
-    std::cout << "i == " << i << std::endl;
+    // std::cout << "i == " << i << std::endl;
     std::cout << "nbr_contacts ==== " << getNbrContact() << std::endl;
     std::cout << "Contact created succesfully " << std::endl;
 }
@@ -99,7 +106,7 @@ void    PhoneBook::addContact()
 void    PhoneBook::printContact()
 {
     int i = 0;
-    // PhoneBook p1;
+
     // while (i < 8)
     // {
         

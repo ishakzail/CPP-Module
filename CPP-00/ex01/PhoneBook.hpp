@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:10 by izail             #+#    #+#             */
-/*   Updated: 2022/08/13 15:09:48 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/14 13:08:17 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,16 @@ class PhoneBook
     private :
         Contact contacts[8];
         int     nbr_contacts;
-        int     idx_contact;
     public :
         PhoneBook(void){};
         ~PhoneBook(){};
        
+       void     get_info(int idx);
+
        void     addContact();
        void     printContact();
        
+       int      check_values(int idx);
 
        void     setNbrContact(int nbr);
        int      getNbrContact();
