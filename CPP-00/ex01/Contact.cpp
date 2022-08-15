@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:38:16 by izail             #+#    #+#             */
-/*   Updated: 2022/08/14 13:13:25 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/15 10:14:45 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,7 @@ void Contact::setFirstName(std::string firstname)
 
 void Contact::setLastName(std::string lastname)
 {
-    if (lastname.length() <= 10)
-        this->lastName = lastname;
-    else
-    {
-        std::cout << "Firstname field must contain less than 10 characters" << std::endl;
-        return;
-    }
-        
+    this->lastName = lastname;
 }
 
 void Contact::setNickName(std::string nickname)
