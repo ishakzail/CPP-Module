@@ -6,13 +6,23 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:12 by izail             #+#    #+#             */
-/*   Updated: 2022/08/14 11:40:50 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/15 11:34:58 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include "PhoneBook.hpp"
+
+
+void    show_header()
+{
+    std::cout << "\n\t \t \t       HELLO WELCOME TO THE PHONEBOOK" << std::endl;
+    std::cout << "\t \t \t ******************************************** " << std::endl;
+    std::cout << "\t \t \t * - Add contacts 'Type ADD or add'         * " << std::endl;
+    std::cout << "\t \t \t * - Search contacts 'Type SEARCH or search * " << std::endl;
+    std::cout << "\t \t \t ******************************************** " << std::endl;
+}
 
 int main() {
 
@@ -22,14 +32,10 @@ int main() {
 
     i = 0;
 
-    std::cout << "HELLO WELCOME TO THE PHONEBOOK" << std::endl;
-    std::cout << "****************************************************************" << std::endl;
-    std::cout << "You can choose between adding or searching by taping ADD or SEARCH in the stdin" << std::endl;
-    std::cout << "****************************************************************" << std::endl;
-
+    
+    show_header();
     while (std::cin >> mac)
     {
-        // std::cout << "input value == " << mac << std::endl;
         if (mac.compare("EXIT") == 0 )
             exit(0);
         else if (mac.compare("ADD") != 0 && mac.compare("SEARCH") != 0)
