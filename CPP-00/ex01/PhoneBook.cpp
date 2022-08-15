@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:06 by izail             #+#    #+#             */
-/*   Updated: 2022/08/14 13:12:28 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/15 10:49:24 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,6 @@
 // }
 
 
-// void    PhoneBook::addContact()
-// {
-//     int i;
-    
-//     i = 0;
-//     std::string str;
-//     std::cout << "Enter contact information :" << std::endl;
-//     while (i < )
-// }
-
 static int i = 0;
 
 void    PhoneBook::setNbrContact(int nbr)
@@ -63,15 +53,20 @@ void PhoneBook::get_info(int idx)
     std::string _darketsecret;
     
     std::cout << "Enter first name :" << std::endl;
-    std::cin >> _firstname;
+    std::getline(std::cin >> std::ws, _firstname);
+    if ( check_values(_firstname) != 1 ) std::cout << std::endl;
     std::cout << "Enter last name :" << std::endl;
-    std::cin >> _lastname;
+    std::getline(std::cin, _lastname); 
+    if ( check_values(_lastname) != 1 ) std::cout << std::endl;
     std::cout << "Enter nick name :" << std::endl;
-    std::cin >> _nickname;
+    std::getline(std::cin, _nickname) ;
+    if ( check_values(_nickname) != 1 ) std::cout << std::endl;
     std::cout << "Enter phone number :" << std::endl;
-    std::cin >> _phonenumber;
+    std::getline(std::cin, _phonenumber);
+    if ( check_values(_phonenumber) != 1 ) std::cout << std::endl;
     std::cout << "Enter darket secret :" << std::endl;
-    std::cin >> _darketsecret;
+    std::getline(std::cin, _darketsecret);
+    if ( check_values(_darketsecret) != 1 ) std::cout << std::endl;
 
     this->contacts[idx].setFirstName(_firstname);
     this->contacts[idx].setLastName(_lastname);
@@ -82,19 +77,33 @@ void PhoneBook::get_info(int idx)
 
 }
 
-// int    PhoneBook::check_values(int idx)
-// {
-//     if (this->contacts[idx].getFirstName().length() > 10)
-//     {
-//         std::cout << "Firstname field must contain less than 10 characters" << std::endl;
-//         return (0);
-//     }    
-// }
+int    PhoneBook::check_values(std::string str)
+{
+    if (!str.length())
+    {
+        while (str.length() == 0)
+        {
+            std::cout << "Field can't be empty" << std::endl;
+            std::getline(std::cin, str);
+        }
+        return (0);
+    }
+    if (str.length() >= 10)
+    {
+        while (str.length() > 10)
+        {
+            std::cout << "Field must not containt more than 10 characters" << std::endl;
+            std::getline(std::cin, str);
+        }
+        return (0);
+    }
+    return (1);
+}
 
 void    PhoneBook::addContact()
 {
-    if (i == 8)
-        i = 0;
+    // if ( this->getNbrContact() > 7)
+    //     i = 0;
     this->get_info(i);
     i++;
     setNbrContact(i);
