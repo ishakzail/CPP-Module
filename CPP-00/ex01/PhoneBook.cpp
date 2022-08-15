@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:06 by izail             #+#    #+#             */
-/*   Updated: 2022/08/15 10:49:24 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/15 13:37:27 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,21 +52,21 @@ void PhoneBook::get_info(int idx)
     std::string _phonenumber;
     std::string _darketsecret;
     
-    std::cout << "Enter first name :" << std::endl;
+    std::cout << "Enter first name :" << std::endl << ">";
     std::getline(std::cin >> std::ws, _firstname);
-    if ( check_values(_firstname) != 1 ) std::cout << std::endl;
-    std::cout << "Enter last name :" << std::endl;
+    if ( check_values(_firstname) != 1 ) std::cout << "";
+    std::cout << "Enter last name :" << std::endl << ">";
     std::getline(std::cin, _lastname); 
-    if ( check_values(_lastname) != 1 ) std::cout << std::endl;
-    std::cout << "Enter nick name :" << std::endl;
+    if ( check_values(_lastname) != 1 ) std::cout << "";
+    std::cout << "Enter nick name :" << std::endl << ">";
     std::getline(std::cin, _nickname) ;
-    if ( check_values(_nickname) != 1 ) std::cout << std::endl;
-    std::cout << "Enter phone number :" << std::endl;
+    if ( check_values(_nickname) != 1 ) std::cout << "";
+    std::cout << "Enter phone number :" << std::endl << ">";
     std::getline(std::cin, _phonenumber);
-    if ( check_values(_phonenumber) != 1 ) std::cout << std::endl;
-    std::cout << "Enter darket secret :" << std::endl;
+    if ( check_values(_phonenumber) != 1 ) std::cout << "";
+    std::cout << "Enter darket secret :" << std::endl << ">";
     std::getline(std::cin, _darketsecret);
-    if ( check_values(_darketsecret) != 1 ) std::cout << std::endl;
+    if ( check_values(_darketsecret) != 1 ) std::cout << "";
 
     this->contacts[idx].setFirstName(_firstname);
     this->contacts[idx].setLastName(_lastname);
@@ -74,7 +74,6 @@ void PhoneBook::get_info(int idx)
     this->contacts[idx].setPhoneNumber(_phonenumber);
     this->contacts[idx].setDarkestSecret(_darketsecret);
     this->contacts[idx].setIndex(idx);
-
 }
 
 int    PhoneBook::check_values(std::string str)
@@ -83,16 +82,7 @@ int    PhoneBook::check_values(std::string str)
     {
         while (str.length() == 0)
         {
-            std::cout << "Field can't be empty" << std::endl;
-            std::getline(std::cin, str);
-        }
-        return (0);
-    }
-    if (str.length() >= 10)
-    {
-        while (str.length() > 10)
-        {
-            std::cout << "Field must not containt more than 10 characters" << std::endl;
+            std::cout << "Field can't be empty" << std::endl << ">";
             std::getline(std::cin, str);
         }
         return (0);
@@ -108,8 +98,8 @@ void    PhoneBook::addContact()
     i++;
     setNbrContact(i);
     // std::cout << "i == " << i << std::endl;
-    std::cout << "nbr_contacts ==== " << getNbrContact() << std::endl;
-    std::cout << "Contact created succesfully " << std::endl;
+    // std::cout << "nbr_contacts ==== " << getNbrContact() << std::endl;
+    std::cout << "\t \t \t \t Contact created succesfully !!!" << std::endl;
 }
 
 void    PhoneBook::printContact()
@@ -119,19 +109,18 @@ void    PhoneBook::printContact()
     // while (i < 8)
     // {
         
-        std::cout << " *********** List Contact *********** " << std::endl;
-        std::cout << " ------- -------- -------- -------- -------" << std::endl;
-        std::cout << "| index | f.name | l.name | n.name | phone |" << std::endl;
+        std::cout << " \t \t \t \t *********** List Contact *********** " << std::endl;
+        std::cout << " \t \t \t \t ------------------------------------------------------" << std::endl;
+        std::cout << " \t \t \t \t |\tindex\t| first name | last name | nick name |" << std::endl;
         while (i < getNbrContact())
         {
-            std::cout << " | "<<  this->contacts[i].getIndex() << " | " << "\t";
-            std::cout<<   this->contacts[i].getFirstName() << " | " ;
-            std::cout<<  this->contacts[i].getLastName() << " | " ;
-            std::cout<<  this->contacts[i].getNickName() << " | ";
-            std::cout<<  this->contacts[i].getPhoneNumber() << " | "  << "\n" ;
+            std::cout << " \t \t \t \t |"<<  this->contacts[i].getIndex() << "\t|\t";
+            std::cout<<   this->contacts[i].getFirstName() << "\t|\t" ;
+            std::cout<<  this->contacts[i].getLastName() << "\t|\t" ;
+            std::cout<<  this->contacts[i].getNickName() << "\t|\t";
             i++;
         }
-        std::cout << "\n -------  -------- -------- -------- ------- " << std::endl;
+        std::cout << "\n\t \t \t \t ------------------------------------------------------" << std::endl;
         
     // }
     
