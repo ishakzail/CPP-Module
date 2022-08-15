@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:10 by izail             #+#    #+#             */
-/*   Updated: 2022/08/14 13:08:17 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/15 08:55:05 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class PhoneBook
        void     addContact();
        void     printContact();
        
-       int      check_values(int idx);
+       int      check_values(std::string val);
 
        void     setNbrContact(int nbr);
        int      getNbrContact();
