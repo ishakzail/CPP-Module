@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:10 by izail             #+#    #+#             */
-/*   Updated: 2022/08/15 08:55:05 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/16 10:16:14 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ class PhoneBook
 
        void     setNbrContact(int nbr);
        int      getNbrContact();
-       // string  searchContact(); 
+       void     searchContact(int idx); 
 };
