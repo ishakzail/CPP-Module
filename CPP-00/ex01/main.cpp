@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:12 by izail             #+#    #+#             */
-/*   Updated: 2022/08/15 11:34:58 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/16 11:14:20 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,17 @@
 #include <string>
 #include "PhoneBook.hpp"
 
+int     check_cmd(std::string cmd)
+{
+    if (cmd == "ADD")
+        return (1);
+    else if (cmd == "SEARCH")
+        return (2);
+    else if (cmd == "EXIT")
+        return (3);
+    return (0);
+           
+}
 
 void    show_header()
 {
@@ -27,28 +38,36 @@ void    show_header()
 int main() {
 
     PhoneBook P1;
-    std::string mac;
-    int i;
+    std::string cmd;
+    int idx;
+    int val;
+    int stop;
 
-    i = 0;
-
+    stop = 0;
     
     show_header();
-    while (std::cin >> mac)
+    
+    while (!stop)
     {
-        if (mac.compare("EXIT") == 0 )
-            exit(0);
-        else if (mac.compare("ADD") != 0 && mac.compare("SEARCH") != 0)
-            std::cout << "You can only search or add a contact"<< std::endl;
-        else
-        {
-            std::cout << "Great you can add a contact to the list !" << std::endl;
-            P1.addContact();
-            // P1.setNbr(4);
-            P1.printContact();
-        }
+        std::cout << "$>";
+        std::getline(std::cin, cmd);
+        val = check_cmd(cmd);
         
-         // std::cout << "value == " << mac << std::endl;
+        if (val == 3)
+        {
+            std::cout << "Bye!" << std::endl;
+            stop = 1;
+        }
+        else if (val == 2)
+        {
+            std::cout << "type index of contact :" ;
+            std::cin >> idx;
+            P1.searchContact(idx);
+        }
+        else if (val == 1)
+            P1.addContact();
+        else 
+            std::cout << "Invalid command ! " << std::endl;
     }
     return 0;
 }
