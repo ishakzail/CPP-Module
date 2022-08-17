@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:12 by izail             #+#    #+#             */
-/*   Updated: 2022/08/16 11:14:20 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/17 16:04:21 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,18 @@ int     check_cmd(std::string cmd)
     else if (cmd == "EXIT")
         return (3);
     return (0);
+    // else
+    //     return (std::cout << "Invalid command !" << std::endl,0);
            
 }
 
 void    show_header()
 {
-    std::cout << "\n\t \t \t       HELLO WELCOME TO THE PHONEBOOK" << std::endl;
+    std::cout << "\n\t \t \t     HELLO WELCOME TO THE PHONEBOOK" << std::endl;
     std::cout << "\t \t \t ******************************************** " << std::endl;
-    std::cout << "\t \t \t * - Add contacts 'Type ADD or add'         * " << std::endl;
-    std::cout << "\t \t \t * - Search contacts 'Type SEARCH or search * " << std::endl;
+    std::cout << "\t \t \t * - ADD                                    * " << std::endl;
+    std::cout << "\t \t \t * - SEARCH                                 * " << std::endl;
+    std::cout << "\t \t \t * - EXIT                                   * " << std::endl;
     std::cout << "\t \t \t ******************************************** " << std::endl;
 }
 
@@ -46,7 +49,7 @@ int main() {
     stop = 0;
     
     show_header();
-    
+    P1.setNbrContact(0);    
     while (!stop)
     {
         std::cout << "$>";
@@ -60,14 +63,12 @@ int main() {
         }
         else if (val == 2)
         {
-            std::cout << "type index of contact :" ;
-            std::cin >> idx;
-            P1.searchContact(idx);
+            P1.searchContact();
         }
         else if (val == 1)
             P1.addContact();
-        else 
-            std::cout << "Invalid command ! " << std::endl;
+        // else 
+        //     std::cout << "Invalid command ! " << std::endl;
     }
     return 0;
 }
