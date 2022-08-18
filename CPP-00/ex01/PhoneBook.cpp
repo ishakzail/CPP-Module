@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:06 by izail             #+#    #+#             */
-/*   Updated: 2022/08/18 15:04:44 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/18 17:09:40 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int    PhoneBook::check_index()
         }
         else
         {
-            while (index >= (this->getNbrContact() - 1))
+            while ( !(index >= 0 && index < this->getNbrContact()) )
             {
                 std::cout << "index is out of range ! re-type :" << std::endl;
                 std::cin >> index;
@@ -120,79 +120,21 @@ int    PhoneBook::check_index()
     return index;
 }
 
-void    PhoneBook::_push(Contact contact)
-{
-    int top;
-    int nbrContacts;
-
-    top = -1;
-    nbrContacts = this->getNbrContact();
-    
-    if ( top == nbr_contacts)
-    {
-        top++;
-        this->contacts[top] = contact; 
-        // std::cout << ""
-    }
-}
-
-void    PhoneBook::swap_cont()
-{
-    int i;
-    PhoneBook p1;
-    i = 0;
-    if (this->getNbrContact() < 2)
-    {
-        std::cout << "One contact can be swipped" << std::endl;
-        return;
-    }   
-    else
-    {
-        while ( i < this->getNbrContact())
-        {
-            p1.contacts[i] = this->contacts[i];
-            this->contacts[i] = this->contacts[i + 1];
-            this->contacts[i + 1] = p1.contacts[i];
-            i++;
-        }
-        
-    }
-}
-
 void    PhoneBook::addContact()
 {
-    
-    if ( this->getNbrContact() > 7)
-    {
-        
-        this->_push(this->contacts[i]);
-    }
-       
     this->get_info(i);
     i++;
     setNbrContact(i);
-    // std::cout << "i == " << i << std::endl;
-    // std::cout << "nbr_contacts ==== " << getNbrContact() << std::endl;
-    // std::cout << "\t \t \t \t Contact created succesfully !!!" << std::endl;
 }
-
-
 
 void    PhoneBook::printContact()
 {
     int i , nbr;
     std::string separator = "+-------+------------+------------+------------+\n";
-    std::string h1;
-    std::string h2;
-    std::string h3, h4;
     std::string header;
     int idx;
     
-    h1 = "First name";
-    h2 = "Last name ";
-    h3 = "Nick name ";
-    h4 = "Index";
-    header = "| " + h4 + " | " + h1 + " | " + h2 + " | " + h3 + " |\n";
+    header = "| Index | First Name | Last Name  | Nick Name  |\n";
     std::cout << this->getNbrContact() << std::endl;
     nbr = this->getNbrContact();
     i = 0;
@@ -204,15 +146,18 @@ void    PhoneBook::printContact()
     std::cout << separator 
             << header
             << separator;
-    // this->swap_cont();
     while (i < nbr)
     {
         
         std::cout << std::left
-            << "| " << std::setw(5) << this->contacts[i].getIndex() 
-            << " | " << std::setfill('.') << std::setw(10) << this->contacts[i].getFirstName() 
-            << " | " << std::setfill('.') << std::setw(10) <<  this->contacts[i].getLastName()
-            << " | " << std::setfill('.') << std::setw(10) << this->contacts[i].getNickName() << " |\n";
+                  << "| " << std::setw(5) << this->contacts[i].getIndex() 
+                  << " | ";
+        _adjustString(this->contacts[i].getFirstName());
+        std::cout <<  " | ";
+        _adjustString(this->contacts[i].getLastName());
+        std::cout << " | ";
+        _adjustString(this->contacts[i].getNickName());
+        std::cout << " |\n" ;
             i++;
     }
     std::cout << separator;
@@ -222,10 +167,22 @@ void    PhoneBook::printContact()
     
 }
 
+void    PhoneBook::_adjustString(std::string str)
+{
+    if (str.length() >= 10)
+    {
+       std::cout <<std::setw(10) << std::setfill('.') << str.substr(0,10);
+       
+    }
+    else
+    {
+        std::cout << std::setw(10) << str;
+    }
+
+}
+
 void    PhoneBook::getContact(int idx)
 {
-    // check_index(idx);
-    
     std::cout << "First name :" << this->contacts[idx].getFirstName() << std::endl;
     std::cout << "Last name :" << this->contacts[idx].getLastName() << std::endl;
     std::cout << "Nick name :" << this->contacts[idx].getNickName() << std::endl;
@@ -236,47 +193,4 @@ void    PhoneBook::getContact(int idx)
 void    PhoneBook::searchContact()
 {
     this->printContact();
-    // int i = 0;
-
-    // // while (i < 8)
-    // // {
-        
-    //     std::cout << " \t \t \t \t *********** List Contact *********** " << std::endl;
-    //     std::cout << " \t \t ------------------------------------------------------" << std::endl;
-    //     std::cout << " \t \t | index | first name | last name | nick name |" << std::endl;
-    //     while (i < getNbrContact())
-    //     {
-    //         std::cout << " \t \t |"<<  this->contacts[i].getIndex() << "\t|\t";
-    //         std::cout<<   this->contacts[i].getFirstName() << "\t|\t" ;
-    //         std::cout<<  this->contacts[i].getLastName() << "\t|\t" ;
-    //         std::cout<<  this->contacts[i].getNickName() << "\t|\t";
-    //         i++;
-    //     }
-    //     std::cout << "\n\t \t ------------------------------------------------------" << std::endl;
-        
-    // }
-    
-    // std::cout<< "" c.getFirstName() << std::endl;
 }
-
-// std::string PhoneBook::searchContact(int idx)
-// {
-//     std::string separator = "+-------------+-------------+-------------+-------------+";
-//     std::string h1;
-//     std::string h2;
-//     std::string h3;
-//     std::string header;
-    
-//     h1 = "First name";
-//     h2 = "Last name";
-//     h3 = "Nick name";
-//     header = "| " + h1 + " | " + h2 + " | " + h3 + " |\n";
-    
-//     std::cout << separator 
-//               << header
-//               << separator
-//               << "| " << std::setw(10) << "Ishak"
-//               << " | " << "Zail"
-//               << " | " << "izail" << "|\n"
-//               << separator;
-// }
