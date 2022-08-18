@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:12 by izail             #+#    #+#             */
-/*   Updated: 2022/08/17 16:04:21 by izail            ###   ########.fr       */
+/*   Updated: 2022/08/18 17:09:34 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,14 @@ int main() {
 
     PhoneBook P1;
     std::string cmd;
-    int idx;
+    int i;
     int val;
     int stop;
 
-    stop = 0;
-    
+    i = 0;
     show_header();
     P1.setNbrContact(0);    
-    while (!stop)
+    while (1)
     {
         std::cout << "$>";
         std::getline(std::cin, cmd);
@@ -59,14 +58,16 @@ int main() {
         if (val == 3)
         {
             std::cout << "Bye!" << std::endl;
-            stop = 1;
+            return (0);
         }
         else if (val == 2)
         {
             P1.searchContact();
         }
         else if (val == 1)
+        {
             P1.addContact();
+        }
         // else 
         //     std::cout << "Invalid command ! " << std::endl;
     }
