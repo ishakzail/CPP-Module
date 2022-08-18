@@ -6,7 +6,7 @@
 #    By: izail <izail@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 02:25:57 by izail             #+#    #+#              #
-#    Updated: 2022/08/12 00:57:24 by izail            ###   ########.fr        #
+#    Updated: 2022/08/18 15:21:37 by izail            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = phonebook
 
 CC = c++
 
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRC = Contact.cpp PhoneBook.cpp main.cpp
 
