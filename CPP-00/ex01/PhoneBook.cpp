@@ -122,6 +122,19 @@ int    PhoneBook::check_index()
 
 void    PhoneBook::addContact()
 {
+    int j;
+
+    j = 1;
+    if (i == 8)
+    {
+        while (j < i)
+        {
+            this->contacts[j - 1] = this->contacts[j];
+            j++;
+        }
+        i--;
+        this->contacts[i].setIndex(j++);
+    }
     this->get_info(i);
     i++;
     setNbrContact(i);
