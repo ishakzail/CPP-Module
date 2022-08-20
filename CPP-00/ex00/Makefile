@@ -12,7 +12,7 @@
 
 NAME = megaphone
 
-CC = clang++
+CC = c++
 
 FLAGS = -Wall -Werror -Wextra
 
