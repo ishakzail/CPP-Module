@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:38:35 by izail             #+#    #+#             */
-/*   Updated: 2022/08/16 08:35:55 by izail            ###   ########.fr       */
+/*   Updated: 2022/09/21 08:05:35 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 class Contact
 {
     private :
-        int         index;
         std::string firstName;
         std::string lastName;
         std::string nickName;
@@ -26,7 +25,7 @@ class Contact
     public : 
         Contact(void){};
         ~Contact(void){};
-
+        int     _index;
         void    setLastName(std::string lastname);
         void    setFirstName(std::string firstname);
         void    setNickName(std::string nickname);

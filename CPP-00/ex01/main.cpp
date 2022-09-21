@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:12 by izail             #+#    #+#             */
-/*   Updated: 2022/08/18 17:09:34 by izail            ###   ########.fr       */
+/*   Updated: 2022/09/21 16:10:11 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ int     check_cmd(std::string cmd)
         return (2);
     else if (cmd == "EXIT")
         return (3);
-    return (0);
-    // else
-    //     return (std::cout << "Invalid command !" << std::endl,0);
-           
+    return (0);     
 }
 
 void    show_header()
@@ -42,34 +39,21 @@ int main() {
 
     PhoneBook P1;
     std::string cmd;
-    int i;
     int val;
     int stop;
 
-    i = 0;
     show_header();
     P1.setNbrContact(0);    
-    while (1)
+    while (std::getline(std::cin, cmd))
     {
-        std::cout << "$>";
-        std::getline(std::cin, cmd);
+        // std::cout << "\033[1;36mCMD>\033[0m";
         val = check_cmd(cmd);
-        
         if (val == 3)
-        {
-            std::cout << "Bye!" << std::endl;
             return (0);
-        }
         else if (val == 2)
-        {
             P1.searchContact();
-        }
         else if (val == 1)
-        {
             P1.addContact();
-        }
-        // else 
-        //     std::cout << "Invalid command ! " << std::endl;
     }
     return 0;
 }

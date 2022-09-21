@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:38:16 by izail             #+#    #+#             */
-/*   Updated: 2022/08/15 10:14:45 by izail            ###   ########.fr       */
+/*   Updated: 2022/09/21 08:05:04 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,12 @@ std::string Contact::getDarkestSecret()
     return this->darkestSecret;
 }
 
-void Contact::setIndex(int nbr)
-{
-    this->index = nbr;
-}
+// void Contact::setIndex(int nbr)
+// {
+//     this->index = nbr;
+// }
 
-int Contact::getIndex()
-{
-    return this->index;
-}
+// int Contact::getIndex()
+// {
+//     return this->index;
+// }

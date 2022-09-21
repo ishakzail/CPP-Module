@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:10 by izail             #+#    #+#             */
-/*   Updated: 2022/08/18 17:09:27 by izail            ###   ########.fr       */
+/*   Updated: 2022/09/21 18:28:23 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,25 @@ class PhoneBook
     private :
         Contact contacts[8];
         int     nbr_contacts;
+        int     i;
     public :
-        PhoneBook(void){};
-        ~PhoneBook(){};
+        PhoneBook();
+        ~PhoneBook();
        
        void     get_info(int idx);
-
+       void     set_info(int idx, std::string f, std::string l, std::string n, std::string p, std::string d);
+       std::string     get_input(std::string str);
+       void     check_str(std::string str);
        void     addContact();
        void     printContact();
        void     getContact(int idx);
        int      check_index();
        
-       void      check_values(std::string val);
-
+       int      ft_atoi(std::string str);
        void     setNbrContact(int nbr);
        int      getNbrContact();
-       void     searchContact(); 
-
+       void     searchContact();
+       int      check_is_int(std::string str);
        void    _adjustString(std::string str);
-
-       void     swap_cont();
+       std::string      check_get_str();
 };
