@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:12 by izail             #+#    #+#             */
-/*   Updated: 2022/09/21 16:10:11 by izail            ###   ########.fr       */
+/*   Updated: 2022/09/23 09:12:50 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,3 +57,19 @@ int main() {
     }
     return 0;
 }
+
+// std::string PhoneBook::get_input(std::string str)
+// {
+//     std::string inp;
+    
+//     if(getline(std::cin, inp))
+//     {
+//         std::cout << "Enter " << str << std::endl << "->";
+//         return inp;
+//     }
+//     else
+//     {
+//         std::cout << "Empty field." << std::endl;
+//         return (0);
+//     }
+// }
