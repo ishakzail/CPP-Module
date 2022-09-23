@@ -6,12 +6,12 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:10 by izail             #+#    #+#             */
-/*   Updated: 2022/09/21 18:28:23 by izail            ###   ########.fr       */
+/*   Updated: 2022/09/23 10:13:50 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-
+using std::string;
 class PhoneBook
 {
     private :
@@ -31,11 +31,12 @@ class PhoneBook
        void     getContact(int idx);
        int      check_index();
        
-       int      ft_atoi(std::string str);
-       void     setNbrContact(int nbr);
-       int      getNbrContact();
-       void     searchContact();
-       int      check_is_int(std::string str);
-       void    _adjustString(std::string str);
-       std::string      check_get_str();
+        int      ft_atoi(std::string str);
+        void     setNbrContact(int nbr);
+        int      getNbrContact();
+        void     searchContact();
+        int      check_is_int(std::string str);
+        void    _adjustString(std::string str);
+        std::string    check_get_str(std::string str);
+        void    set_info(std::string f, std::string l, std::string n, std::string p, std::string d, int idx);
 };
