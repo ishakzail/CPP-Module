@@ -6,17 +6,16 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:06 by izail             #+#    #+#             */
-/*   Updated: 2022/09/21 18:31:55 by izail            ###   ########.fr       */
+/*   Updated: 2022/09/23 11:23:46 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-
 #include <limits>
 
 PhoneBook::PhoneBook()
 {
-   i = 1;
+   i = 0;
 }
 PhoneBook::~PhoneBook()
 {
@@ -34,49 +33,56 @@ int PhoneBook::getNbrContact()
     return  this->nbr_contacts;
 }
 
-void PhoneBook::get_info(int idx)
+void    PhoneBook::set_info(std::string f, std::string l, std::string n, std::string p, std::string d, int idx)
 {
-    std::string _firstname;
-    std::string _lastname;
-    std::string _nickname;
-    std::string _phonenumber;
-    std::string _darketsecret;
-    
-    std::cout << "Enter first name :" << std::endl << "->";
-    _firstname = check_get_str();
-    std::cout << "Enter last name :" << std::endl << "->";
-    _lastname = check_get_str();
-    std::cout << "Enter nick name :" << std::endl << "->";
-    _nickname = check_get_str();
-    std::cout << "Enter phone number :" << std::endl << "->";
-    _phonenumber = check_get_str();
-    std::cout << "Enter darket secret :" << std::endl << "->";
-    _darketsecret = check_get_str();
-
-    
-    this->contacts[idx].setFirstName(_firstname);
-    this->contacts[idx].setLastName(_lastname);
-    this->contacts[idx].setNickName(_nickname);
-    this->contacts[idx].setPhoneNumber(_phonenumber);
-    this->contacts[idx].setDarkestSecret(_darketsecret);
-    this->contacts[idx]._index = idx;
+    this->contacts[idx].setFirstName(f);
+    this->contacts[idx].setLastName(l);
+    this->contacts[idx].setNickName(n);
+    this->contacts[idx].setPhoneNumber(p);
+    this->contacts[idx].setDarkestSecret(d);
+    this->contacts[idx]._index = idx + 1;
 }
 
-std::string    PhoneBook::check_get_str()
+void PhoneBook::get_info(int idx)
+{
+    string str[5];
+    
+    str[0] = check_get_str("first name");
+    if(str[0] == "")
+        return;
+    str[1] = check_get_str("last name");
+    if(str[1] == "")
+        return;
+    str[2] = check_get_str("nick name");
+    if(str[2] == "")
+        return;
+    str[3] = check_get_str("phone number");
+    if(str[3] == "")
+        return;
+    str[4] = check_get_str("darker secret");
+    if(str[4] == "")
+        return;
+    
+    this->set_info(str[0], str[1], str[2], str[3], str[4], idx);
+}
+
+std::string    PhoneBook::check_get_str(std::string str)
 {
     int stop;
-    std::string str;
+    std::string inp;
     
     stop = 1;
-    while (std::getline(std::cin, str))
+    std::cout << "Enter " << str << std::endl << "->";
+    while (stop)
     {
-
-            if (str.length() == 0)
-                std::cout << "Field can't be empty" << std::endl << ">";
-            else
-                stop = 0;
+        if(!(getline(std::cin, inp)))
+                return "";
+        if (inp.empty() == 1)
+            std::cout << "Field can't be empty" << std::endl << ">";
+        else
+            stop = 0;
     }
-    return (str);
+    return (inp);
 }
 
 int    PhoneBook::check_is_int(std::string str)
@@ -134,7 +140,7 @@ int    PhoneBook::check_index()
         {
             if (!check_is_int(index))
                 std::cout << "Wrong index ! re-type :" << std::endl;
-            else  if (!(ft_atoi(index)  > 0 && ft_atoi(index) <= this->getNbrContact()))
+            else  if (!((ft_atoi(index))  > 0 && (ft_atoi(index)) <= this->getNbrContact()))
                 std::cout << "index is out of range ! re-type :" << std::endl;
             else
                 stop = 1;
@@ -145,35 +151,28 @@ int    PhoneBook::check_index()
 
 void    PhoneBook::addContact()
 {
-    if (i > 8)
+    if (i > 7)
         i = 0;
     this->get_info(i);
-    setNbrContact(i);
     i++;
+    setNbrContact(i);
 }
 
 void    PhoneBook::printContact()
 {
     int i;
     int nbr;
-    int idx;
-    
     std::string separator;
     std::string header;
     
     separator = "+------------+------------+------------+------------+\n";
     header = "|    Index   | First Name |  Last Name |  Nick Name |\n";
     nbr = this->getNbrContact();
-    i = 1;
-    if ( nbr == 0 )
-    {
-        std::cout << "Phone Book does not contain any contact" << std::endl;
-        return ;
-    }
+    i = 0;
     std::cout << separator 
             << header
             << separator;
-    while (i <= nbr)
+    while (i < nbr)
     {   
         std::cout << std::right
                   << "| " << std::setw(10) << this->contacts[i]._index
@@ -187,10 +186,6 @@ void    PhoneBook::printContact()
             i++;
     }
     std::cout << separator;
-    std::cout << "enter index :" << std::endl;
-    idx = check_index();
-    if(idx)
-        this->getContact(idx);
 }
 
 void    PhoneBook::_adjustString(std::string str)
@@ -216,6 +211,18 @@ void    PhoneBook::getContact(int idx)
 
 void    PhoneBook::searchContact()
 {
-    
+    int idx;
+    int nbr;
+
+    nbr = this->getNbrContact();
+    if ( nbr == 0 )
+    {
+        std::cout << "Phone Book does not contain any contact" << std::endl;
+        return ;
+    }
     this->printContact();
+    std::cout << "enter index :" << std::endl;
+    idx = check_index();
+    if(idx > 0)
+        this->getContact(idx - 1);
 }
