@@ -6,12 +6,10 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:12 by izail             #+#    #+#             */
-/*   Updated: 2022/09/23 09:12:50 by izail            ###   ########.fr       */
+/*   Updated: 2022/09/24 09:22:48 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
 #include "PhoneBook.hpp"
 
 int     check_cmd(std::string cmd)
