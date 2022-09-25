@@ -5,21 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/24 09:17:14 by izail             #+#    #+#             */
-/*   Updated: 2022/09/24 11:41:03 by izail            ###   ########.fr       */
+/*   Created: 2022/09/25 08:34:06 by izail             #+#    #+#             */
+/*   Updated: 2022/09/25 09:53:27 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.cpp"
+#include "Zombie.hpp"
 
 int main(void)
 {
-    Zombie *Zm;
-    Zombie zz;
-    
-    zz.randomChump("ssa");
-    // Zm->newZombie("ssa");
-    
-    // Zm->announce();
-    
+    Zombie *zombie;
+    zombie = newZombie("Zombie1");
+    zombie->announce();
+    randomChump("ChumpZombie");
+    delete (zombie);
+    return (0);
 }

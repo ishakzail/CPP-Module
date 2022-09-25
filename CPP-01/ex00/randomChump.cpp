@@ -5,8 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/24 09:17:19 by izail             #+#    #+#             */
-/*   Updated: 2022/09/24 09:17:20 by izail            ###   ########.fr       */
+/*   Created: 2022/09/25 08:36:29 by izail             #+#    #+#             */
+/*   Updated: 2022/09/25 17:37:58 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Zombie.hpp"
+
+void    randomChump(string name)
+{
+    Zombie Z1("Random");
+    Z1.announce();
+
+}

@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: izail <izail@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/24 09:17:11 by izail             #+#    #+#              #
-#    Updated: 2022/09/24 10:18:00 by izail            ###   ########.fr        #
+#    Created: 2022/09/25 08:21:10 by izail             #+#    #+#              #
+#    Updated: 2022/09/25 08:53:42 by izail            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = c++
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC = Zombie.cpp main.cpp
+SRC = Zombie.cpp randomChump.cpp newZombie.cpp main.cpp
 
 HEADER = Zombie.hpp
 

@@ -5,8 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/24 09:17:17 by izail             #+#    #+#             */
-/*   Updated: 2022/09/24 09:17:18 by izail            ###   ########.fr       */
+/*   Created: 2022/09/25 08:36:26 by izail             #+#    #+#             */
+/*   Updated: 2022/09/25 08:47:42 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Zombie.hpp"
+
+Zombie* newZombie(string name)
+{
+    Zombie *zomb;
+    zomb = new Zombie(name);
+    return (zomb);
+}
