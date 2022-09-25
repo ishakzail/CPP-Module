@@ -6,9 +6,12 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:10 by izail             #+#    #+#             */
-/*   Updated: 2022/09/23 10:13:50 by izail            ###   ########.fr       */
+/*   Updated: 2022/09/25 09:41:00 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+# ifndef CLASS_PHONEBOOK_H
+# define CLASS_PHONEBOOK_H
 
 #include "Contact.hpp"
 using std::string;
@@ -40,3 +43,5 @@ class PhoneBook
         std::string    check_get_str(std::string str);
         void    set_info(std::string f, std::string l, std::string n, std::string p, std::string d, int idx);
 };
+
+#endif

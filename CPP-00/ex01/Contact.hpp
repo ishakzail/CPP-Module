@@ -6,9 +6,12 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/09 22:38:35 by izail             #+#    #+#             */
-/*   Updated: 2022/09/21 08:05:35 by izail            ###   ########.fr       */
+/*   Updated: 2022/09/25 09:40:28 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+# ifndef CLASS_CONTACT_H
+# define CLASS_CONTACT_H
 
 #include <iostream>
 #include <string>
@@ -40,6 +43,6 @@ class Contact
 
         void    setIndex(int idx);
         int     getIndex();
-
-        // void    setInformations(int idx);
 };
+
+#endif
