@@ -6,7 +6,7 @@
 #    By: izail <izail@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/10 02:25:57 by izail             #+#    #+#              #
-#    Updated: 2022/08/18 15:21:37 by izail            ###   ########.fr        #
+#    Updated: 2022/09/25 13:09:09 by izail            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ $(NAME) : $(OBJ) $(HEADER)
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	@rm -f *.o
+	@rm -f $(OBJ)
 
 fclean: clean
 	@rm -f phonebook
