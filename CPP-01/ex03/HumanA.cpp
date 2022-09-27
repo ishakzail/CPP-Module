@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 10:58:43 by izail             #+#    #+#             */
-/*   Updated: 2022/09/26 17:50:43 by izail            ###   ########.fr       */
+/*   Updated: 2022/09/27 10:05:34 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ HumanA::~HumanA()
 }
 
 HumanA::HumanA(std::string name, Weapon &weapon) 
-    : name(name), weapon(weapon)
+    : name(name) , weapon(weapon) 
 {
 }
 
