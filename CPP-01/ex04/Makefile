@@ -6,7 +6,7 @@
 #    By: izail <izail@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 18:11:57 by izail             #+#    #+#              #
-#    Updated: 2022/09/27 10:07:28 by izail            ###   ########.fr        #
+#    Updated: 2022/09/28 14:19:21 by izail            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = c++
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC = main.cpp
+SRC = main.cpp 
 
 %.o : %.cpp 
 	 $(CC) $(FLAGS) -c -o $@ $<
