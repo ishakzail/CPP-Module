@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 08:36:29 by izail             #+#    #+#             */
-/*   Updated: 2022/09/25 17:37:58 by izail            ###   ########.fr       */
+/*   Updated: 2022/09/28 08:49:09 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    randomChump(string name)
 {
-    Zombie Z1("Random");
-    Z1.announce();
-
+    Zombie *Z1 = newZombie(name);
+    Z1->announce();
+    delete Z1;
 }
