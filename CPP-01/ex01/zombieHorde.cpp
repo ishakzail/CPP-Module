@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 09:57:19 by izail             #+#    #+#             */
-/*   Updated: 2022/09/25 11:45:49 by izail            ###   ########.fr       */
+/*   Updated: 2022/09/28 08:58:01 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 Zombie* zombieHorde(int n, string name)
 {
     int i = -1;
+    if (n <= 0)
+        return (NULL);
     Zombie *Zombies = new Zombie[n];
-    
+    if (!Zombies)
+        return (NULL);
     while (++i < n)
     {
         Zombies[i].setName(name);
