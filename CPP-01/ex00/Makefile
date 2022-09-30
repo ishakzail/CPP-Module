@@ -6,7 +6,7 @@
 #    By: izail <izail@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/25 08:21:10 by izail             #+#    #+#              #
-#    Updated: 2022/09/25 08:53:42 by izail            ###   ########.fr        #
+#    Updated: 2022/09/28 09:01:54 by izail            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,9 @@ FLAGS = -Wall -Werror -Wextra -std=c++98
 SRC = Zombie.cpp randomChump.cpp newZombie.cpp main.cpp
 
 HEADER = Zombie.hpp
+
+%.o : %.cpp 
+	 $(CC) $(FLAGS) -c -o $@ $<
 
 OBJ = $(SRC:%.cpp=%.o)
 
