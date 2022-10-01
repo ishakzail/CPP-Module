@@ -6,7 +6,15 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 14:22:34 by izail             #+#    #+#             */
-/*   Updated: 2022/09/28 14:22:35 by izail            ###   ########.fr       */
+/*   Updated: 2022/09/30 11:06:37 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Harl.hpp"
+
+int main(void)
+{
+    Harl H1;
+    H1.complain("ERROR");
+    return (0);
+}
