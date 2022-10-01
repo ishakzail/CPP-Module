@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:10 by izail             #+#    #+#             */
-/*   Updated: 2022/09/26 17:52:02 by izail            ###   ########.fr       */
+/*   Updated: 2022/09/30 15:53:40 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,20 @@ class PhoneBook
         PhoneBook();
         ~PhoneBook();
        
-       void     get_info(int idx);
-       void     set_info(int idx, std::string f, std::string l, std::string n, std::string p, std::string d);
-       std::string     get_input(std::string str);
-       void     check_str(std::string str);
-       void     addContact();
-       void     printContact();
-       void     getContact(int idx);
-       int      check_index();
-       
-        int      ft_atoi(std::string str);
-        void     setNbrContact(int nbr);
-        int      getNbrContact();
-        void     searchContact();
-        int      check_is_int(std::string str);
-        void    _adjustString(std::string str);
-        std::string    check_get_str(std::string str);
-        void    set_info(std::string f, std::string l, std::string n, std::string p, std::string d, int idx);
+        void            get_info(int idx);
+        void            set_info(int idx, std::string f, std::string l, std::string n, std::string p, std::string d);
+        std::string     get_input(std::string str);
+        void            addContact();
+        void            printContact();
+        void            getContact(int idx);
+        int             check_index();
+        void            searchContact();
+        std::string     check_get_str(std::string str);
+        void            set_info(std::string f, std::string l, std::string n, std::string p, std::string d, int idx);
 };
+        int             check_is_int(std::string str);
+        void            check_str(std::string str);
+        void            _adjustString(std::string str);
+        int             ft_atoi(std::string str);
 
 #endif

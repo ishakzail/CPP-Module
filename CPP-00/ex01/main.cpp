@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:12 by izail             #+#    #+#             */
-/*   Updated: 2022/09/24 09:22:48 by izail            ###   ########.fr       */
+/*   Updated: 2022/09/30 17:47:11 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,10 @@ int main() {
     PhoneBook P1;
     std::string cmd;
     int val;
-    int stop;
 
     show_header();
-    P1.setNbrContact(0);    
     while (std::getline(std::cin, cmd))
     {
-        // std::cout << "\033[1;36mCMD>\033[0m";
         val = check_cmd(cmd);
         if (val == 3)
             return (0);
@@ -55,19 +52,3 @@ int main() {
     }
     return 0;
 }
-
-// std::string PhoneBook::get_input(std::string str)
-// {
-//     std::string inp;
-    
-//     if(getline(std::cin, inp))
-//     {
-//         std::cout << "Enter " << str << std::endl << "->";
-//         return inp;
-//     }
-//     else
-//     {
-//         std::cout << "Empty field." << std::endl;
-//         return (0);
-//     }
-// }

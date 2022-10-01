@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 02:11:06 by izail             #+#    #+#             */
-/*   Updated: 2022/09/23 11:26:49 by izail            ###   ########.fr       */
+/*   Updated: 2022/09/30 15:56:15 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,16 @@
 PhoneBook::PhoneBook()
 {
    i = 0;
+   nbr_contacts = 0;
 }
 PhoneBook::~PhoneBook()
 {
     std::cout << "Bye !" << std::endl;
 }
 
-
-void    PhoneBook::setNbrContact(int nbr)
-{
-    this->nbr_contacts = nbr;
-}
-
-int PhoneBook::getNbrContact()
-{
-    return  this->nbr_contacts;
-}
-
 void    PhoneBook::set_info(std::string f, std::string l, std::string n, std::string p, std::string d, int idx)
 {
+    
     this->contacts[idx].setFirstName(f);
     this->contacts[idx].setLastName(l);
     this->contacts[idx].setNickName(n);
@@ -84,7 +75,7 @@ std::string    PhoneBook::check_get_str(std::string str)
     return (inp);
 }
 
-int    PhoneBook::check_is_int(std::string str)
+int    check_is_int(std::string str)
 {
     int i;
 
@@ -98,7 +89,7 @@ int    PhoneBook::check_is_int(std::string str)
     return (1); 
 }
 
-int    PhoneBook::ft_atoi(std::string  str)
+int    ft_atoi(std::string  str)
 {
     int     signe;
 	long    nbr;
@@ -139,7 +130,7 @@ int    PhoneBook::check_index()
         {
             if (!check_is_int(index))
                 std::cout << "Wrong index ! re-type :" << std::endl;
-            else  if (!((ft_atoi(index))  > 0 && (ft_atoi(index)) <= this->getNbrContact()))
+            else  if (!((ft_atoi(index))  > 0 && (ft_atoi(index)) <= this->nbr_contacts))
                 std::cout << "index is out of range ! re-type :" << std::endl;
             else
                 stop = 1;
@@ -150,11 +141,10 @@ int    PhoneBook::check_index()
 
 void    PhoneBook::addContact()
 {
-    if (i > 7)
-        i = 0;
+    i = i % 8;
     this->get_info(i);
+    this->nbr_contacts = (this->nbr_contacts == 8 ? 8 : this->nbr_contacts + 1);
     i++;
-    setNbrContact(i);
 }
 
 void    PhoneBook::printContact()
@@ -166,7 +156,7 @@ void    PhoneBook::printContact()
     
     separator = "+------------+------------+------------+------------+\n";
     header = "|    Index   | First Name |  Last Name |  Nick Name |\n";
-    nbr = this->getNbrContact();
+    nbr = this->nbr_contacts;
     i = 0;
     std::cout << separator 
             << header
@@ -187,7 +177,7 @@ void    PhoneBook::printContact()
     std::cout << separator;
 }
 
-void    PhoneBook::_adjustString(std::string str)
+void    _adjustString(std::string str)
 {
     if (str.length() >= 10)
     {
@@ -213,7 +203,7 @@ void    PhoneBook::searchContact()
     int idx;
     int nbr;
 
-    nbr = this->getNbrContact();
+    nbr = this->nbr_contacts;
     if ( nbr == 0 )
     {
         std::cout << "Phone Book does not contain any contact" << std::endl;
