@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 10:58:31 by izail             #+#    #+#             */
-/*   Updated: 2022/09/26 15:53:58 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/01 09:35:23 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Weapon
     public :
         Weapon();
         Weapon(std::string type);
-        ~Weapon();
-        const std::string getType();
+        const   std::string getType();
         void    setType(std::string type);
+        ~Weapon();
 };

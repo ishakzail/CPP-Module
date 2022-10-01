@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 10:58:40 by izail             #+#    #+#             */
-/*   Updated: 2022/09/26 15:54:03 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/01 09:35:09 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ class HumanA
         std::string name;
         Weapon &weapon;
     public :
-
-        ~HumanA();
         HumanA(std::string name, Weapon &weapon);
-        
         std::string getName();
-        void        setName(std::string name);
         void        attack();
+        void        setName(std::string name);
+        ~HumanA();
 };
