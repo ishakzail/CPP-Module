@@ -6,18 +6,16 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 09:57:10 by izail             #+#    #+#             */
-/*   Updated: 2022/09/28 09:02:25 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/03 16:39:33 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-
-
 int main(void)
 {
     Zombie *Zs; 
-    Zs = zombieHorde(10, "Waaaa Baaaarcaaaa");
+    Zs = zombieHorde(2, "Waaaa Baaaarcaaaa");
     delete [] Zs;
     return (0);
 }

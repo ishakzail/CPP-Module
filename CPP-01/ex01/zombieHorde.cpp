@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/25 09:57:19 by izail             #+#    #+#             */
-/*   Updated: 2022/09/28 08:58:01 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/03 16:39:56 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Zombie* zombieHorde(int n, string name)
     while (++i < n)
     {
         Zombies[i].setName(name);
-        std::cout << i + 1 << "--";
+        std::cout << i + 1 << " -- ";
         Zombies[i].announce();
     }
     return Zombies;
