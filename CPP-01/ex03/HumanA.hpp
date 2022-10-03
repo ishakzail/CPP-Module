@@ -6,11 +6,12 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 10:58:40 by izail             #+#    #+#             */
-/*   Updated: 2022/10/01 09:35:09 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/03 15:43:56 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+# ifndef CLASS_HUMAN_A_H
+# define CLASS_HUMAN_A_H
 
 #include "Weapon.hpp"
 
@@ -26,3 +27,5 @@ class HumanA
         void        setName(std::string name);
         ~HumanA();
 };
+
+#endif

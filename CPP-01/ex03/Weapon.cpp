@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 10:58:28 by izail             #+#    #+#             */
-/*   Updated: 2022/09/26 14:44:09 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/03 16:19:28 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ void  Weapon::setType(std::string type)
     this->_type = type;
 }
 
-const std::string Weapon::getType()
+const std::string &Weapon::getType()
 {
-    std::string const &ref = this->_type;
-    return ref;
+    return this->_type;
 }

@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 11:08:40 by izail             #+#    #+#             */
-/*   Updated: 2022/10/01 14:32:05 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/02 18:38:04 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void    Harl::complain(std::string level)
         "ERROR"
     };
     int i = -1;
+    
     while (++i < 4)
         if(levels[i] == level)
             break;

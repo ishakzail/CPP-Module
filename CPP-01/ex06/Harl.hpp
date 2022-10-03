@@ -6,9 +6,12 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/30 11:08:43 by izail             #+#    #+#             */
-/*   Updated: 2022/09/30 11:09:16 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/03 15:45:12 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+# ifndef CLASS_HARL_H
+# define CLASS_HARL_H
 
 #include <iostream>
 
@@ -24,3 +27,5 @@ class Harl
         ~Harl();
         void    complain(std::string level);
 };
+
+#endif
