@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:17:19 by izail             #+#    #+#             */
-/*   Updated: 2022/10/10 18:10:34 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/11 17:37:22 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,27 +76,27 @@ Fixed::~Fixed()
 
 bool Fixed::operator<(const Fixed& obj)
 {
-    return (this->_fixedPoint < obj.getRawBits());
+    return (this->_fixedPoint < obj._fixedPoint);
 }
 
 bool Fixed::operator>(const Fixed& obj)
 {
-    return (this->_fixedPoint > obj.getRawBits());
+    return (this->_fixedPoint > obj._fixedPoint);
 }
 
 bool Fixed::operator>=(const Fixed& obj)
 {
-    return (this->_fixedPoint >= obj.getRawBits());
+    return (this->_fixedPoint >= obj._fixedPoint);
 }
 
 bool Fixed::operator<=(const Fixed& obj)
 {
-    return (this->_fixedPoint <= obj.getRawBits());
+    return (this->_fixedPoint <= obj._fixedPoint);
 }
 
 bool Fixed::operator==(const Fixed& obj)
 {
-    return (this->_fixedPoint == obj.getRawBits());
+    return (this->_fixedPoint == obj._fixedPoint);
 }
 
 // Arithmetic operators
@@ -114,14 +114,16 @@ Fixed Fixed::operator/(const Fixed& obj)
 
 Fixed Fixed::operator+(const Fixed& obj)
 {
-    this->_fixedPoint += obj.getRawBits();
-    return (*this);
+    Fixed _fixed;
+    _fixed._fixedPoint += obj._fixedPoint;
+    return (_fixed);
 }
 
 Fixed Fixed::operator-(const Fixed& obj)
 {
-    this->_fixedPoint -= obj.getRawBits();
-    return (*this);
+    Fixed _fixed;
+    _fixed._fixedPoint -= obj._fixedPoint;
+    return (_fixed);
 }
 
 // increment / Decrement operators
@@ -140,14 +142,16 @@ Fixed & Fixed::operator++()
 
 Fixed Fixed::operator--(int)
 {
+    Fixed tmp(*this);
     this->_fixedPoint--;
-    return(*this);
+    return(tmp);
 }
 
 Fixed Fixed::operator++(int)
 {
+    Fixed tmp(*this);
     this->_fixedPoint++;
-    return(*this);
+    return(tmp);
 }
 
 // min && max
@@ -169,7 +173,7 @@ Fixed &Fixed::max(Fixed & obj1, Fixed & obj2)
 
 const Fixed &Fixed::min(const Fixed & obj1, const Fixed & obj2)
 {
-    if ((Fixed)obj1 > Fixed(obj2))
+    if ((Fixed)obj1 > (Fixed)obj2)
         return (obj2);
     else
         return (obj1);

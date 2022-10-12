@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:17:21 by izail             #+#    #+#             */
-/*   Updated: 2022/10/10 18:02:19 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/11 15:43:21 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ class Fixed
 
         static Fixed &min(Fixed& obj1, Fixed & obj2);
         static Fixed &max(Fixed& obj1, Fixed & obj2);
-
         static const Fixed &min(const Fixed& obj1,const Fixed & obj2);
         static const Fixed &max(const Fixed& obj1,const Fixed & obj2);
         ~Fixed();
