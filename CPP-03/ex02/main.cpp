@@ -6,42 +6,43 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 09:17:08 by izail             #+#    #+#             */
-/*   Updated: 2022/10/17 14:18:02 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/17 18:18:25 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+// #include "ScavTrap.hpp"
 
 int main()
 {
     ScavTrap fighter1("Fighter#1");
 	ScavTrap fighter2("Fighter#2");
 	ScavTrap fighter3(fighter1);
-
+	FragTrap fighter4("Fighter#3");
 	std::cout << std::endl;
 	std::cout << "[====================Round 1====================]" << std::endl;
 
-	fighter1.attack("Enemy#1");
-	fighter1.takeDamage(110);
-	fighter1.beRepaired(5);
-	fighter1.guardGate();
+	fighter4.attack("Enemy#1");
+	fighter4.takeDamage(110);
+	fighter4.beRepaired(5);
+	// fighter4.guardGate();
 
 	std::cout << std::endl;
-	// std::cout << "[====================Round 2====================]" << std::endl;
+	std::cout << "[====================Round 2====================]" << std::endl;
 
-	// fighter2.attack("Enemy#2");
-	// fighter2.takeDamage(4);
-	// fighter2.beRepaired(2);
-	// fighter2.takeDamage(8);
-	// fighter2.guardGate();
+	fighter2.attack("Enemy#2");
+	fighter2.takeDamage(4);
+	fighter2.beRepaired(2);
+	fighter2.takeDamage(8);
+	fighter2.guardGate();
 
-	// std::cout << std::endl;
-	// std::cout << "[====================Round 3====================]" << std::endl;
+	std::cout << std::endl;
+	std::cout << "[====================Round 3====================]" << std::endl;
 
-	// fighter3.attack("Enemy#3");
-	// fighter3.takeDamage(9);
-	// fighter3.beRepaired(3);
-	// fighter3.guardGate();
+	fighter3.attack("Enemy#3");
+	fighter3.takeDamage(9);
+	fighter3.beRepaired(3);
+	fighter3.guardGate();
 
 	std::cout << std::endl;
 

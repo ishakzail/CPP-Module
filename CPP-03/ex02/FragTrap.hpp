@@ -6,11 +6,11 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 14:26:52 by izail             #+#    #+#             */
-/*   Updated: 2022/10/17 14:32:04 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/17 18:18:10 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 class FragTrap : public ClapTrap
 {
