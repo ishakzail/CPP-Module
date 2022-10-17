@@ -6,19 +6,19 @@
 #    By: izail <izail@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/12 11:36:46 by izail             #+#    #+#              #
-#    Updated: 2022/10/12 11:37:11 by izail            ###   ########.fr        #
+#    Updated: 2022/10/17 14:23:44 by izail            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = clap
+NAME = scav
 
 CC = c++
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC = ClapTrap.cpp main.cpp
+SRC = ClapTrap.cpp ScavTrap.cpp main.cpp
 
-HEADER = ClapTrap.hpp
+HEADER = ClapTrap.hpp ScavTrap.hpp
 
 %.o : %.cpp 
 	 $(CC) $(FLAGS) -c -o $@ $<
@@ -34,6 +34,6 @@ clean:
 	@rm -f $(OBJ)
 
 fclean: clean
-	@rm -f clap
+	@rm -f scav
 
 re: fclean all
