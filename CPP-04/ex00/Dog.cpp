@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:51 by izail             #+#    #+#             */
-/*   Updated: 2022/10/18 16:01:28 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/18 18:01:30 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ Dog & Dog::operator=(const Dog & obj)
     return (*this);
 }
 
-// std::string Dog::getType()
-// {
-//     return this->type;
-// }
+std::string Dog::getType()
+{
+    return this->type;
+}
 
-// void Dog::setType(std::string _type)
-// {
-//     this->type = _type;
-// }
+void Dog::setType(std::string _type)
+{
+    this->type = _type;
+}
 
 void    Dog::makeSound(void)
 {
