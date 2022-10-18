@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 11:36:43 by izail             #+#    #+#             */
-/*   Updated: 2022/10/17 09:00:43 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/18 09:25:17 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,10 @@
 
 int main(void)
 {
-    ClapTrap fighter1("Ishak");
 	ClapTrap fighter2("Messi");
-
+	
 	std::cout << std::endl;
-	std::cout << "[====================Round 1====================]" << std::endl;
-
-	fighter1.attack("khobza");
-	fighter1.takeDamage(11);
-	fighter1.beRepaired(5);
-
-	std::cout << std::endl;
-	std::cout << "[====================Round 2====================]" << std::endl;
+	std::cout << "[============================================]" << std::endl;
 
 	fighter2.attack("madrid");
 	fighter2.takeDamage(4);

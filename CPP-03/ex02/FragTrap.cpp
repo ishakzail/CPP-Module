@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 14:26:55 by izail             #+#    #+#             */
-/*   Updated: 2022/10/17 18:08:32 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/18 08:55:18 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ FragTrap::FragTrap(const FragTrap & obj)
     this->name = this->name+ "_copy";
 }
 
+void FragTrap::highFivesGuys(void)
+{
+    std::cout << "High five guys \U0001F600" <<  std::endl;
+}
 
 FragTrap::~FragTrap()
 {

@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 09:17:08 by izail             #+#    #+#             */
-/*   Updated: 2022/10/17 17:45:39 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/18 09:26:55 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int main()
 {
-    ScavTrap ss("Ishak");
-    ScavTrap cc;
+    ScavTrap ss("fighter");
+    ScavTrap cc(ss);
 
-	cc = ss;
+	// cc = ss;
     
     std::cout << std::endl;
 	std::cout << "[====================Round 1====================]" << std::endl;
 
-	ss.attack("khobza");
+	ss.attack("enemy0");
 	ss.takeDamage(10);
 	ss.beRepaired(5);
     ss.attack("barca");
@@ -41,7 +41,7 @@ int main()
 	std::cout << std::endl;
 	std::cout << "[====================Round 2====================]" << std::endl;
 
-	cc.attack("madrid");
+	cc.attack("enemy10");
 	cc.takeDamage(4);
 	cc.beRepaired(2);
 	cc.takeDamage(8);

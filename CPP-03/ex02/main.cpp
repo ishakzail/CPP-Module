@@ -6,12 +6,11 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 09:17:08 by izail             #+#    #+#             */
-/*   Updated: 2022/10/17 18:18:25 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/18 09:55:13 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
-// #include "ScavTrap.hpp"
 
 int main()
 {
@@ -25,7 +24,7 @@ int main()
 	fighter4.attack("Enemy#1");
 	fighter4.takeDamage(110);
 	fighter4.beRepaired(5);
-	// fighter4.guardGate();
+	fighter4.highFivesGuys();
 
 	std::cout << std::endl;
 	std::cout << "[====================Round 2====================]" << std::endl;
@@ -45,36 +44,5 @@ int main()
 	fighter3.guardGate();
 
 	std::cout << std::endl;
-
-    // ScavTrap ss("Ishak");
-    // // ScavTrap cc("Khobza");
-    
-    // std::cout << std::endl;
-	// std::cout << "[====================Round 1====================]" << std::endl;
-
-	// ss.attack("khobza");
-	// ss.takeDamage(10);
-	// ss.beRepaired(5);
-    // ss.attack("barca");
-    // ss.attack("enemy1");
-    // ss.attack("enemy2");
-    // ss.attack("enemy3");
-    // ss.attack("enemy4");
-    // ss.attack("enemy5");
-    // ss.attack("enemy6");
-    // ss.beRepaired(1003);
-    // ss.takeDamage(95);
-    // ss.attack("enemy7");
-    // ss.attack("enemy8");
-    // ss.attack("enemy9");
-    // ss.guardGate();
-	// std::cout << std::endl;
-	// // std::cout << "[====================Round 2====================]" << std::endl;
-
-	// // cc.attack("madrid");
-	// // cc.takeDamage(4);
-	// // cc.beRepaired(2);
-	// // cc.takeDamage(8);
-    
     return (0);
 }
