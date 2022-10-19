@@ -3,21 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: izail < izail@student.1337.ma >            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:47 by izail             #+#    #+#             */
-/*   Updated: 2022/10/18 18:01:26 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/19 05:46:32 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat() : Animal()
 {
+    this->type = "cat";
     std::cout << "Cat :: Default constructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &obj)
+Cat::Cat(const Cat &obj) : Animal(obj)
 {
     std::cout << "Cat :: Copy constructor called" << std::endl;
     *this = obj;
@@ -35,17 +36,13 @@ Cat & Cat::operator=(const Cat & obj)
 
 std::string Cat::getType()
 {
+    std::cout << "Cat :: getType() function called\n";
     return this->type;
 }
 
-void Cat::setType(std::string _type)
+void    Cat::makeSound(void) const
 {
-    this->type = _type;
-}
-
-void    Cat::makeSound(void)
-{
-    std::cout << "miao miao !" << std::endl;
+    std::cout << "Cat is meeeeoing !" << std::endl;
 }
 
 Cat::~Cat()

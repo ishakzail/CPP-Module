@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: izail <izail@student.1337.ma>              +#+  +:+       +#+         #
+#    By: izail < izail@student.1337.ma >            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 11:31:59 by izail             #+#    #+#              #
-#    Updated: 2022/10/18 14:56:16 by izail            ###   ########.fr        #
+#    Updated: 2022/10/19 05:15:31 by izail            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ CC = c++
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC = Animal.cpp Dog.cpp Cat.cpp main.cpp
+SRC = Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
 
-HEADER = Animal.hpp Dog.hpp Cat.hpp
+HEADER = Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp
 
 %.o : %.cpp 
 	 $(CC) $(FLAGS) -c -o $@ $<

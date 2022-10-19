@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: izail < izail@student.1337.ma >            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:42 by izail             #+#    #+#             */
-/*   Updated: 2022/10/18 15:08:42 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/19 05:16:04 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal()
+Animal::Animal() : type("animal")
 {
     std::cout << "Animal :: Default constructor called" << std::endl;
 }
@@ -33,17 +33,13 @@ Animal & Animal::operator=(const Animal &obj)
     return (*this);
 }
 
-std::string Animal::getType()
+std::string Animal::getType() const 
 {
+    std::cout << "Animal :: getType() function called\n";
     return this->type;
 }
 
-void Animal::setType(std::string _type)
-{
-    this->type = _type;
-}
-
-void Animal::makeSound(void)
+void Animal::makeSound(void) const
 {
     std::cout << "animal sound" << std::endl;
 }

@@ -3,21 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
+/*   By: izail < izail@student.1337.ma >            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:51 by izail             #+#    #+#             */
-/*   Updated: 2022/10/18 18:01:30 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/19 05:46:54 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog() : Animal()
 {
+    this->type = "dog";
     std::cout << "Dog :: Default constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &obj)
+Dog::Dog(const Dog &obj) : Animal(obj)
 {
     std::cout << "Dog :: Copy constructor called" << std::endl;
     *this = obj;
@@ -35,17 +36,13 @@ Dog & Dog::operator=(const Dog & obj)
 
 std::string Dog::getType()
 {
+    std::cout << "Dog :: getType() function called\n";
     return this->type;
 }
 
-void Dog::setType(std::string _type)
+void    Dog::makeSound(void) const
 {
-    this->type = _type;
-}
-
-void    Dog::makeSound(void)
-{
-    std::cout << "hao hao !" << std::endl;
+    std::cout << "Dog is Barking !" << std::endl;
 }
 
 Dog::~Dog()

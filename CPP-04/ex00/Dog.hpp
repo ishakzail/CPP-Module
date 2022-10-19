@@ -18,9 +18,8 @@ class Dog : public Animal
     public :
         Dog();
         std::string getType();
-        void    setType(std::string _type);
         Dog(const Dog & obj);
         Dog &operator= (const Dog& obj);
-        void makeSound(void);
+        void makeSound(void) const;
         ~Dog();
 };
