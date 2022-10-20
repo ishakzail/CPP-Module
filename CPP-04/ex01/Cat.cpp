@@ -6,22 +6,22 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:47 by izail             #+#    #+#             */
-/*   Updated: 2022/10/20 11:54:22 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/20 15:11:01 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : Animal()
+Cat::Cat() : Animal("cat")
 {
-    this->type = "cat";
-    brain = new Brain();
-    std::cout << "Cat :: Default constructor called" << std::endl;
+    this->brain = new Brain();
+    std::cout << "\033[1;32mDefaut constructor called by Cat\033[0m" << std::endl;
 }
 
 Cat::Cat(const Cat &obj)
 {
-    std::cout << "Cat :: Copy constructor called" << std::endl;
+    std::cout << "\033[1;32mCopy constructor called by Cat\033[0m" << std::endl;
+    this->brain = new Brain();
     *this = obj;
 }
 
@@ -29,25 +29,25 @@ Cat & Cat::operator=(const Cat & obj)
 {
     if(this != &obj)
     {
-        std::cout << "Cat :: Copy assignment operator called" << std::endl;
-        this->type = obj.type;
+        std::cout << "\033[1;32mCopy assignment operator called by Cat\033[0m" << std::endl;
+        *(this->brain) = *(obj.brain);
     }
     return (*this);
 }
 
 std::string Cat::getType()
 {
-    std::cout << "Cat :: getType() function called\n";
+    std::cout << "\033[1;32mgetType() function called by Cat\033[0m" << std::endl;
     return this->type;
 }
 
 void    Cat::makeSound(void) const
 {
-    std::cout << "Cat is meeeeoing !" << std::endl;
+    std::cout << "\033[1;32mCat is meeeeoing !\033[0m" << std::endl;
 }
 
 Cat::~Cat()
 {
-    delete brain;
-    std::cout << "Cat :: Default destructor called" << std::endl;
+    delete this->brain;
+    std::cout << "\033[1;32mDestructor called by Cat\033[0m" << std::endl;
 }
