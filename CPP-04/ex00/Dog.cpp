@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: izail < izail@student.1337.ma >            +#+  +:+       +#+        */
+/*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:51 by izail             #+#    #+#             */
-/*   Updated: 2022/10/19 05:46:54 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/20 10:27:07 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Dog & Dog::operator=(const Dog & obj)
 {
     if(this != &obj)
     {
-        std::cout << "Animal :: Copy assignment operator called" << std::endl;
+        std::cout << "Dog :: Copy assignment operator called" << std::endl;
         this->type = obj.type;
     }
     return (*this);

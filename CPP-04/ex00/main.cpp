@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: izail < izail@student.1337.ma >            +#+  +:+       +#+        */
+/*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:56 by izail             #+#    #+#             */
-/*   Updated: 2022/10/19 05:38:27 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/20 11:43:30 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ int main()
     const Animal* j = new Dog();
     const Animal* i = new Cat();
 
-    // std::cout << j->getType() << " " << std::endl;
-    std::cout << j->getType() << " " << std::endl;
+    std::cout << i->getType() << " " << std::endl;
     std::cout << i->getType() << " " << std::endl;
     i->makeSound(); //will output the cat sound!
     j->makeSound();
