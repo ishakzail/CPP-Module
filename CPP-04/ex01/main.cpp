@@ -6,20 +6,51 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:56 by izail             #+#    #+#             */
-/*   Updated: 2022/10/22 14:03:04 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/22 23:52:42 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Dog.hpp"
-
+#include "unistd.h"
 int main()
 {
+	std::cout << "********* Dogs *********\n";
+	Animal *arrOfAnimal[10];
+	for (int i = 0; i < 5; i++)
+		arrOfAnimal[i] = new Dog();
+	std::cout << "********* Cats *********\n";
+	for (int j = 5; j < 10; j++)
+		arrOfAnimal[j] = new Cat();
 
-	Cat basic;
+	std::cout << "********* Making Sound *********\n";
+	for (int i = 0; i < 10; i++)
+		arrOfAnimal[i]->makeSound();
+
+	std::cout << "********* Destructions *********\n";
+	for (int i = 0; i < 10; i++)
 	{
-		Cat tmp (basic);
+		delete arrOfAnimal[i];
 	}
+
+	std::cout << "********* Deep copy *********\n";
+	Dog mimi("mimi");
+	Dog tom("tom");
+
+	std::cout << ">>> Name: " << tom.getType() << "\n";
+	tom = mimi;
+	std::cout << ">>> Name: " << tom.getType() << "\n";
+	std::cout << "******* leaks ********\n";
+	// system("leaks Brain");
+	std::cout << "******* Destructions ********\n";
+	Cat momo("mimi");
+	Cat tomi("tom");
+	momo = tomi;
+
+	std::cout << mimi.getType() << "\n";
+	sleep(10);
+	
+	return (0);
     // const Animal* j = new Dog();
 	// const Animal* i = new Cat();
 
@@ -45,5 +76,5 @@ int main()
 	// cat->makeSound();
 	// d.makeSound();
 	// delete cat;
-	return 0;
+	// return 0;
 }
