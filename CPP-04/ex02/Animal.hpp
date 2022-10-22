@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:44 by izail             #+#    #+#             */
-/*   Updated: 2022/10/20 17:57:11 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/22 09:20:47 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ class Animal
         Animal(std::string _type);
         Animal &operator=(const Animal & obj);
         std::string getType() const;
-        virtual void    makeSound(void) = 0;
+        virtual void    makeSound(void) const = 0;
         virtual ~Animal();
 };

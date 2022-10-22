@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:54 by izail             #+#    #+#             */
-/*   Updated: 2022/10/20 17:57:50 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/22 11:12:27 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ class Dog : public Animal
         Brain *brain;
     public :
         Dog();
-        std::string getType();
         Dog(const Dog & obj);
         Dog &operator= (const Dog& obj);
-        void makeSound(void);
+        void makeSound(void) const;
         ~Dog();
 };

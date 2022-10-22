@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:47 by izail             #+#    #+#             */
-/*   Updated: 2022/10/20 17:58:00 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/22 11:11:18 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,7 @@ Cat & Cat::operator=(const Cat & obj)
     return (*this);
 }
 
-std::string Cat::getType()
-{
-    std::cout << "\033[1;32mgetType() function called by Cat\033[0m" << std::endl;
-    return this->type;
-}
-
-void    Cat::makeSound(void)
+void    Cat::makeSound(void) const
 {
     std::cout << "\033[1;32mCat is meeeeoing !\033[0m" << std::endl;
 }

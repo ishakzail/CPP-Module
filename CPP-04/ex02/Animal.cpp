@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:42 by izail             #+#    #+#             */
-/*   Updated: 2022/10/20 17:57:19 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/22 09:32:04 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Animal::Animal(const Animal &obj)
 
 Animal::Animal(std::string _type) : type(_type)
 {
-    std::cout << "\033[1;33mCParam constructor called by Animal\033[0m" << std::endl;
+    std::cout << "\033[1;33mParam constructor called by Animal\033[0m" << std::endl;
 }
 
 Animal & Animal::operator=(const Animal &obj)
@@ -44,7 +44,7 @@ std::string Animal::getType() const
     return this->type;
 }
 
-void Animal::makeSound(void)
+void Animal::makeSound(void) const
 {
     // std::cout << "\033[1;33mAnimal sound\033[0m" << std::endl;
 }
