@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: izail < izail@student.1337.ma >            +#+  +:+       +#+        */
+/*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:42 by izail             #+#    #+#             */
-/*   Updated: 2022/10/19 05:16:04 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/22 11:09:27 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,16 @@ Animal::Animal() : type("animal")
     std::cout << "Animal :: Default constructor called" << std::endl;
 }
 
+Animal::Animal(std::string _type) : type(_type)
+{
+    std::cout << "Animal :: Param Constructor called" << std::endl;
+}
+
 Animal::Animal(const Animal &obj)
 {
-    std::cout << "Animal :: Copy constructor called" << std::endl;
     *this = obj;
+    this->type += "_copy";
+    std::cout << "Animal :: Copy constructor called" << std::endl;
 }
 
 Animal & Animal::operator=(const Animal &obj)

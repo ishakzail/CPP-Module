@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: izail < izail@student.1337.ma >            +#+  +:+       +#+        */
+/*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 05:07:49 by izail             #+#    #+#             */
-/*   Updated: 2022/10/19 05:45:00 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/22 10:30:46 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 WrongCat::WrongCat()
 {
-    this->type = "Wrongcat";
+    this->type = "WrongCat";
     std::cout << "WrongCat :: Default constructor called" << std::endl;
 }
 
@@ -34,11 +34,11 @@ WrongCat & WrongCat::operator=(const WrongCat & obj)
     return (*this);
 }
 
-std::string WrongCat::getType()
-{
-    std::cout << "WrongCat :: getType() function called\n";
-    return this->type;
-}
+// std::string WrongCat::getType() const
+// {
+//     std::cout << "WrongCat :: getType() function called\n";
+//     return this->type;
+// }
 
 void    WrongCat::makeSound(void) const
 {

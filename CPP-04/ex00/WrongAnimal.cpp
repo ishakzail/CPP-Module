@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: izail < izail@student.1337.ma >            +#+  +:+       +#+        */
+/*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 05:07:38 by izail             #+#    #+#             */
-/*   Updated: 2022/10/19 05:16:37 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/22 10:23:50 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ std::string WrongAnimal::getType() const
 
 void WrongAnimal::makeSound(void) const
 {
-    std::cout << "Wronganimal sound" << std::endl;
+    std::cout << "WrongAnimal sound" << std::endl;
 }
 
 WrongAnimal::~WrongAnimal()
