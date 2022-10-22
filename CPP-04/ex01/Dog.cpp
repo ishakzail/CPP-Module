@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:51 by izail             #+#    #+#             */
-/*   Updated: 2022/10/20 15:09:41 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/22 14:39:47 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,24 @@ Dog::Dog() : Animal("dog")
     this->brain = new Brain();
 }
 
-Dog::Dog(const Dog &obj) : Animal(obj)
+Dog::Dog(const Dog &obj)
 {
     std::cout << "\033[1;34mCopy constructor called by Dog\033[0m" << std::endl;
-    this->brain = new Brain();
+    this->is_copy = 1;
     *this = obj;
-    this->type += "_copy"; 
 }
 
 Dog & Dog::operator=(const Dog & obj)
 {
+    std::cout << "\033[1;34mCopy assignment operator called by Dog\033[0m" << std::endl;
     if(this != &obj)
     {
-        std::cout << "\033[1;34mCopy assignment operator called by Dog\033[0m" << std::endl;
+        delete this->brain;
+        this->type = obj.type;
+        this->brain = new Brain();
         *brain = *(obj.brain);
     }
     return (*this);
-}
-
-std::string Dog::getType()
-{
-    std::cout << "\033[1;34mgetType() function called by Dog\033[0m" << std::endl;
-    return this->type;
 }
 
 void    Dog::makeSound(void) const

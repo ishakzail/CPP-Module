@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:42 by izail             #+#    #+#             */
-/*   Updated: 2022/10/20 15:06:19 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/22 11:19:19 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ Animal::Animal() : type("animal")
 
 Animal::Animal(const Animal &obj)
 {
-    std::cout << "\033[1;33mCopy constructor called by Animal\033[0m" << std::endl;
     *this = obj;
+    this->type += "_copy";
+    std::cout << "\033[1;33mCopy constructor called by Animal\033[0m" << std::endl;
 }
 
 Animal::Animal(std::string _type) : type(_type)
 {
-    std::cout << "\033[1;33mCParam constructor called by Animal\033[0m" << std::endl;
+    std::cout << "\033[1;33mParam constructor called by Animal\033[0m" << std::endl;
 }
 
 Animal & Animal::operator=(const Animal &obj)

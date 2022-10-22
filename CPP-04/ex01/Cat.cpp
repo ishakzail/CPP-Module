@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:47 by izail             #+#    #+#             */
-/*   Updated: 2022/10/20 15:11:01 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/22 14:39:59 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,30 @@
 
 Cat::Cat() : Animal("cat")
 {
-    this->brain = new Brain();
     std::cout << "\033[1;32mDefaut constructor called by Cat\033[0m" << std::endl;
+    this->brain = new Brain();
 }
 
 Cat::Cat(const Cat &obj)
 {
     std::cout << "\033[1;32mCopy constructor called by Cat\033[0m" << std::endl;
-    this->brain = new Brain();
+    this->is_copy = 1;
     *this = obj;
+    
 }
 
 Cat & Cat::operator=(const Cat & obj)
 {
+    std::cout << "\033[1;32mCopy assignment operator called by Cat\033[0m" << std::endl;
     if(this != &obj)
     {
-        std::cout << "\033[1;32mCopy assignment operator called by Cat\033[0m" << std::endl;
+        if (!this->is_copy)
+            delete this->brain;
+        this->type = obj.type;
+        this->brain = new Brain();
         *(this->brain) = *(obj.brain);
     }
     return (*this);
-}
-
-std::string Cat::getType()
-{
-    std::cout << "\033[1;32mgetType() function called by Cat\033[0m" << std::endl;
-    return this->type;
 }
 
 void    Cat::makeSound(void) const

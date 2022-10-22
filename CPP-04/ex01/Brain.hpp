@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:46:10 by izail             #+#    #+#             */
-/*   Updated: 2022/10/20 11:58:27 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/22 13:49:41 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ class Brain
     public :
         std::string ideas[100];
         Brain();
+        Brain(std::string &_ideas);
         Brain(const Brain& obj);
         Brain& operator=(const Brain& obj);
+        
         ~Brain();
 };

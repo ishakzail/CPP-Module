@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:54 by izail             #+#    #+#             */
-/*   Updated: 2022/10/20 11:52:46 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/22 14:39:34 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ class Dog : public Animal
 {
     private :
         Brain *brain;
+        int is_copy;
     public :
         Dog();
-        std::string getType();
         Dog(const Dog & obj);
         Dog &operator= (const Dog& obj);
         void makeSound(void) const;
-        ~Dog();
+        virtual ~Dog();
 };
