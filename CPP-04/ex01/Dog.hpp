@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:54 by izail             #+#    #+#             */
-/*   Updated: 2022/10/22 23:44:07 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/24 09:56:29 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ class Dog : public Animal
 {
     private :
         Brain *brain;
-        int is_copy;
     public :
         Dog();
         Dog(std::string _type);

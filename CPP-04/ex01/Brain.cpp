@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 11:46:08 by izail             #+#    #+#             */
-/*   Updated: 2022/10/22 23:31:26 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/24 09:59:39 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,6 @@ Brain & Brain::operator=(const Brain &obj)
     return (*this);
 }
 
-const std::string Brain::getIdeas(int i)
-{
-    if (i >= 0 || i < 100)
-        return (this->ideas[i]);
-    std::cout << "Invalid index " << std::endl;
-    return (NULL); 
-}
-
-void Brain::setIdeas(const std::string _idea)
-{
-    for (int i = 0; i < 100; i++)
-        this->ideas[i] = _idea;
-}
 
 Brain::~Brain()
 {
