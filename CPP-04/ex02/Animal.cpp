@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:42 by izail             #+#    #+#             */
-/*   Updated: 2022/10/22 09:32:04 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/24 11:12:52 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,6 @@ std::string Animal::getType() const
     return this->type;
 }
 
-void Animal::makeSound(void) const
-{
-    // std::cout << "\033[1;33mAnimal sound\033[0m" << std::endl;
-}
 
 Animal::~Animal()
 {

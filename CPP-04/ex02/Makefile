@@ -6,19 +6,19 @@
 #    By: izail <izail@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 11:31:59 by izail             #+#    #+#              #
-#    Updated: 2022/10/20 14:47:55 by izail            ###   ########.fr        #
+#    Updated: 2022/10/24 10:02:45 by izail            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Brain
+NAME = Abstract
 
 CC = c++
 
 FLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC = Animal.cpp Dog.cpp Cat.cpp Brain.cpp main.cpp
+SRC = Animal.cpp Dog.cpp Cat.cpp Brain.cpp WrongAnimal.cpp WrongCat.cpp main.cpp
 
-HEADER = Animal.hpp Dog.hpp Cat.hpp Brain.hpp
+HEADER = Animal.hpp Dog.hpp Cat.hpp Brain.hpp WrongAnimal.hpp WrongCat.hpp
 
 %.o : %.cpp 
 	 $(CC) $(FLAGS) -c -o $@ $<
@@ -34,6 +34,6 @@ clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f Brain
+	rm -f Abstract
 
 re: fclean all

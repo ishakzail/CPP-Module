@@ -6,12 +6,13 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:56 by izail             #+#    #+#             */
-/*   Updated: 2022/10/22 09:31:37 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/24 10:32:11 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "unistd.h"
 
 int main()
 {
@@ -33,16 +34,17 @@ int main()
 	for (int i = 0; i < 4; i++)
 		delete animal[i];
 
-	// std::cout<<std::endl<< "/*******My Own Test********\\" <<std::endl<<std::endl;
+	std::cout<<std::endl<< "/*******My Own Test********\\" <<std::endl<<std::endl;
 
-	// Cat *cat = new Cat();
-	// Animal *dog = new Dog();
-	// Cat d = *cat;
+	Cat *cat = new Cat();
+	Animal *dog = new Dog();
+	Cat d = *cat;
 
 	
-	// dog->makeSound();
-	// d.makeSound();
-	// delete cat;
-	// delete dog;
+	dog->makeSound();
+	d.makeSound();
+	delete cat;
+	delete dog;
+	
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:49 by izail             #+#    #+#             */
-/*   Updated: 2022/10/22 11:12:35 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/24 09:56:26 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ class Cat : public Animal
         Brain *brain;
     public :
         Cat();
+        Cat(const std::string _type);
         Cat(const Cat & obj);
         Cat &operator= (const Cat& obj);
         void makeSound(void) const;
-        ~Cat();
+        virtual ~Cat();
 };
