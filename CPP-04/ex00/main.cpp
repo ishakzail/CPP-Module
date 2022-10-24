@@ -6,13 +6,14 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 11:31:56 by izail             #+#    #+#             */
-/*   Updated: 2022/10/22 10:29:44 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/24 10:17:53 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "WrongCat.hpp"
+#include <unistd.h>
 
 int main()
 {
@@ -33,7 +34,8 @@ int main()
     WrongCat wc;
     
     std::cout << n->getType() << " ===" << std::endl;
-    n->makeSound(); //will output the cat sound!
+    std::cout << m->getType() << " ===" << std::endl;
+    n->makeSound();
     m->makeSound();
     std::cout <<"----\n";
     wc.makeSound();
@@ -42,5 +44,6 @@ int main()
     delete j;
     delete m; 
     delete n;
+    // sleep(100);
     return 0;
 }
