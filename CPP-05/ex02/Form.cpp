@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:53:38 by izail             #+#    #+#             */
-/*   Updated: 2022/10/26 10:33:53 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/26 18:06:00 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,23 @@ Form::Form() : name("noName"), _signed(false), sign_grade(1), execute_grade(1)
 
 Form::Form(const std::string _name, const unsigned int _sign_grade, const unsigned int _execute_grade) 
     : name(_name), _signed(false), sign_grade(_sign_grade), execute_grade(_execute_grade)
+{
+    std::cout << "Param constructor called by FORM" << std::endl;
+    try
+    {
+        if (this->sign_grade < 1 || this->execute_grade < 1)
+            throw (GradeTooHighException());
+        else if (this->sign_grade > 150 || this->execute_grade > 150)
+            throw(GradeTooLowException());
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what();
+    }
+}
+
+Form::Form(const unsigned int _sign_grade, const unsigned int _execute_grade) 
+    : _signed(false), sign_grade(_sign_grade), execute_grade(_execute_grade)
 {
     std::cout << "Param constructor called by FORM" << std::endl;
     try
@@ -77,6 +94,11 @@ const char *Form::GradeTooHighException::what() const throw()
 const char *Form::GradeTooLowException::what() const throw()
 {
     return "Grade is too low \n";
+}
+
+const char *Form::FormNotSignedException::what() const throw()
+{
+    return "Form not signed\n";
 }
 
 Form & Form::operator=(const Form& obj)
