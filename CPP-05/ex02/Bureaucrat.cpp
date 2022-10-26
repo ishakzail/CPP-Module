@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 20:33:15 by izail             #+#    #+#             */
-/*   Updated: 2022/10/26 10:53:59 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/26 16:04:09 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,9 @@ void Bureaucrat::signForm(Form &obj)
 {
 
     if (this->grade <= obj.getSignGrade() && !obj.getSigned())
+    {
         std::cout << this->name << " signed " << obj.getName() << std::endl;
+    }
     else
         if (this->grade <= obj.getSignGrade() && obj.getSigned())
             std::cout << this->name << " couldn't sign " << obj.getName() << " because it's already signed" << std::endl;
