@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 20:33:15 by izail             #+#    #+#             */
-/*   Updated: 2022/10/25 16:05:23 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/26 10:53:59 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Bureaucrat::Bureaucrat() : name("noName"), grade(1)
 {
-    std::cout << "Default constructor called\n";
+    std::cout << "Default constructor called by BUREAUCRAT\n";
 }
 
 Bureaucrat::Bureaucrat(const std::string _name, int _grade) : name(_name), grade(_grade)
 {
-    std::cout << "Param constructor called\n";
+    std::cout << "Param constructor called by BUREAUCRAT\n";
     try
     {
         if (this->grade  < 1)
@@ -35,14 +35,14 @@ Bureaucrat::Bureaucrat(const std::string _name, int _grade) : name(_name), grade
 
 Bureaucrat::Bureaucrat(const Bureaucrat& obj)
 {
-    std::cout << "Copy constructor called\n";
+    std::cout << "Copy constructor called by BUREAUCRAT\n";
     *this = obj;
     const_cast<std::string&>(this->name) += "_copy";
 }
 
 Bureaucrat & Bureaucrat::operator=(const Bureaucrat & obj)
 {
-    std::cout << "Copy assigment operator called" << std::endl;
+    std::cout << "Copy assigment operator called by BUREAUCRAT" << std::endl;
     if(this != &obj)
     {
         const_cast<std::string&>(this->name) = obj.name;
@@ -99,6 +99,19 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
     return "Grade is too low \n";
 }
 
+void Bureaucrat::signForm(Form &obj)
+{
+
+    if (this->grade <= obj.getSignGrade() && !obj.getSigned())
+        std::cout << this->name << " signed " << obj.getName() << std::endl;
+    else
+        if (this->grade <= obj.getSignGrade() && obj.getSigned())
+            std::cout << this->name << " couldn't sign " << obj.getName() << " because it's already signed" << std::endl;
+        else
+            std::cout << this->name << " couldn't sign " << obj.getName() << " because it's grade is too low" << std::endl;
+            
+}
+
 std::ostream & operator<<(std::ostream &output, const Bureaucrat &obj)
 {
     output << obj.getName() << " bureaucrat grade " << obj.getGrade() << std::endl;
@@ -107,5 +120,5 @@ std::ostream & operator<<(std::ostream &output, const Bureaucrat &obj)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Destructor called\n";
+    std::cout << "Destructor called by BUREAUCRAT\n";
 }
