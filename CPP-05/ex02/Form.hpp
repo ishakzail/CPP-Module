@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:53:36 by izail             #+#    #+#             */
-/*   Updated: 2022/10/26 10:05:26 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/26 18:04:58 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Form
         Form(const Form &obj);
         Form &operator=(const Form &obj);
         Form(const std::string _name, const unsigned int _sign_grade, const unsigned int _execute_grade);
+        Form(const unsigned int _sign_grade, const unsigned int _execute_grade);
         // getters
         unsigned int getSignGrade() const;
         unsigned int getExecuteGrade() const;
@@ -44,8 +45,13 @@ class Form
             public :
                 const char * what() const throw();
         };
-        
+        class FormNotSignedException: public std::exception
+        {
+            public :
+                const char * what() const throw();
+        };
         void beSigned(const Bureaucrat &obj);
+        virtual void execute(Bureaucrat const & executor) const = 0;
         ~Form();
 };
 
