@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 20:33:18 by izail             #+#    #+#             */
-/*   Updated: 2022/10/25 16:05:11 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/26 09:02:41 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include <exception>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -42,6 +45,8 @@ class Bureaucrat
             public :
                 const char * what() const throw();
         };
+
+        void signForm(Form &obj);
         ~Bureaucrat();
 };
 
