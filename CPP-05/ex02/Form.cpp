@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:53:38 by izail             #+#    #+#             */
-/*   Updated: 2022/10/26 18:06:00 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/27 11:30:10 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,17 +88,17 @@ void Form::beSigned(const Bureaucrat &obj)
 
 const char *Form::GradeTooHighException::what() const throw()
 {
-    return "Grade is too high \n";
+    return "--Grade is too high--\n";
 }
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-    return "Grade is too low \n";
+    return "--Grade is too low--\n";
 }
 
 const char *Form::FormNotSignedException::what() const throw()
 {
-    return "Form not signed\n";
+    return "--Form not signed--\n";
 }
 
 Form & Form::operator=(const Form& obj)

@@ -6,18 +6,18 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:32:39 by izail             #+#    #+#             */
-/*   Updated: 2022/10/26 18:05:31 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/27 11:29:31 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : target("default_target")
+ShrubberyCreationForm::ShrubberyCreationForm() : Form("ShrubberyCreationForm", 145, 137)
 {
     std::cout << "Default constructor called by Shrubbery" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string _target) :Form(145, 137) ,target(_target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string _target) :Form("ShrubberyCreationForm", 145, 137) ,target(_target)
 {
     std::cout << "Param constructor called by Shrubbery" << std::endl;
 }
@@ -45,18 +45,18 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
         if(executor.getGrade() > this->getExecuteGrade())
             throw GradeTooLowException();
         std::string myfile = this->target + "_Shrubbery";
-        std::string schema = "\t *\n";
-        schema += "\t***\n";
-        schema += "   *****\n";
-        schema += "\t***\n";
-        schema += "   *****\n";
-        schema += "  *******\n";
-        schema += " *********\n";
-        schema += "***********\n";
-        schema += "\t *\n";
-        schema += "\t *\n";
-        schema += "\t *\n";
-        schema += "\t *\n";
+        std::string schema = "\t /*\\\n";
+        schema += "\t/***\\\n";
+        schema += "   /*****\\\n";
+        schema += "\t/***\\\n";
+        schema += "   /*****\\\n";
+        schema += "  /*******\\\n";
+        schema += " /*********\\\n";
+        schema += "/***********\\\n";
+        schema += "\t |*|\n";
+        schema += "\t |*|\n";
+        schema += "\t |*|\n";
+        schema += "\t |*|\n";
         std::ofstream out_file;
         out_file.open(myfile);
         if (out_file.is_open() && out_file.good())

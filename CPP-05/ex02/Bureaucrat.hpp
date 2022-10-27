@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 20:33:18 by izail             #+#    #+#             */
-/*   Updated: 2022/10/26 09:02:41 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/27 10:51:54 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ class Bureaucrat
         };
 
         void signForm(Form &obj);
+        void executeForm(Form const & form);
         ~Bureaucrat();
 };
 
