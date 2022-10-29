@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 11:41:30 by izail             #+#    #+#             */
-/*   Updated: 2022/10/27 14:37:02 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/29 14:45:52 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,14 @@ Form *Intern::makeForm(std::string name, std::string target)
     switch (i)
     {
         case 0:
-            std::cout << "Intern creates " << forms[i] << std::endl;
+            std::cout << "\033[1;32mIntern creates\033[0m " << forms[i] << std::endl;
             return (new PresidentialPardonForm(target));
-            break;
         case 1:
-            std::cout << "Intern creates " << forms[i] << std::endl;
+            std::cout << "\033[1;32mIntern creates\033[0m " << forms[i] << std::endl;
             return (new RobotomyRequestForm(target));
-            break;
         case 2:
-            std::cout << "Intern creates " << forms[i] << std::endl;
+            std::cout << "\033[1;32mIntern creates\033[0m " << forms[i] << std::endl;
             return (new ShrubberyCreationForm(target));
-            break;
         default:
             throw (Form::FormDoesNotExistException());
             break;

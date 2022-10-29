@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:53:36 by izail             #+#    #+#             */
-/*   Updated: 2022/10/26 18:04:58 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/29 16:58:08 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ class Form
         };
         void beSigned(const Bureaucrat &obj);
         virtual void execute(Bureaucrat const & executor) const = 0;
-        ~Form();
+        virtual ~Form();
 };
 
 std::ostream & operator<<(std::ostream &output, const Form &obj);

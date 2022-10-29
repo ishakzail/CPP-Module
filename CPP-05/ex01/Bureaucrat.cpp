@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 20:33:15 by izail             #+#    #+#             */
-/*   Updated: 2022/10/26 10:53:59 by izail            ###   ########.fr       */
+/*   Updated: 2022/10/29 15:16:48 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void   Bureaucrat::incrementBureacrat()
     try
     {
         this->grade--;
-        if (this->grade  < 1 || this->grade > 150)
+        if (this->grade  < 1)
             throw (GradeTooHighException());
     }
     catch(const std::exception& e)
@@ -80,7 +80,7 @@ void   Bureaucrat::decrementBureacrat()
     try
     {
         this->grade++;
-        if (this->grade  < 1 || this->grade > 150)
+        if (this->grade > 150)
             throw (GradeTooLowException());
     }
     catch(const std::exception& e)
