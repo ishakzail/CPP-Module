@@ -3,10 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: izail < izail@student.1337.ma >            +#+  +:+       +#+        */
+/*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 10:07:14 by izail             #+#    #+#             */
-/*   Updated: 2022/10/31 10:07:15 by izail            ###   ########.fr       */
+/*   Updated: 2022/11/02 18:08:46 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Conversion.hpp"
+
+int main(int ac, char **av)
+{
+    if (ac != 2)
+    {
+        std::cout << "Error" << std::endl;
+        exit(0);
+    }
+    Conversion c(av[1]);
+    
+    return 0;
+}

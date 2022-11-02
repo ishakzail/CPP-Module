@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Conversion.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: izail < izail@student.1337.ma >            +#+  +:+       +#+        */
+/*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 10:07:10 by izail             #+#    #+#             */
-/*   Updated: 2022/10/31 11:16:19 by izail            ###   ########.fr       */
+/*   Updated: 2022/11/02 18:08:19 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,19 @@
 class Conversion
 {
     private :
-        char *inp;
+        std::string inp;
     public :
         Conversion();
+        // Conversion(std::string _inp);
         Conversion(char *_inp);
         Conversion(const Conversion &obj);
         Conversion & operator=(const Conversion &obj);
         ~Conversion();
 
-        void to_char(char *inp);
-        void to_int(char *inp);
-        void to_float(char *inp);
-        void to_double(char *inp);
+        void to_char(std::string inp);
+        void to_int(std::string inp);
+        void to_float(std::string inp);
+        void to_double(std::string inp);
 };
 
 #endif
