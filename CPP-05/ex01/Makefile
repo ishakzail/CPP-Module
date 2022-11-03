@@ -6,7 +6,7 @@
 #    By: izail <izail@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 20:33:23 by izail             #+#    #+#              #
-#    Updated: 2022/10/25 15:56:23 by izail            ###   ########.fr        #
+#    Updated: 2022/11/03 19:44:32 by izail            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC = Bureaucrat.cpp Form.cpp main.cpp
 
 HEADER = Bureaucrat.hpp Form.hpp
 
-%.o : %.cpp 
+%.o : %.cpp $(HEADER)
 	 $(CC) $(FLAGS) -c -o $@ $<
 
 OBJ = $(SRC:%.cpp=%.o)
