@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:32:39 by izail             #+#    #+#             */
-/*   Updated: 2022/10/27 11:29:31 by izail            ###   ########.fr       */
+/*   Updated: 2022/11/02 14:02:57 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreation
     return (*this);
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
+void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
         if(!this->getSigned())
             throw FormNotSignedException();

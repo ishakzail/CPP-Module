@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 20:33:21 by izail             #+#    #+#             */
-/*   Updated: 2022/10/29 16:12:55 by izail            ###   ########.fr       */
+/*   Updated: 2022/11/03 16:47:50 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,14 @@ int main()
 	{
 		std::cerr << e.what();
 	}
-	Bureaucrat B1("Ishak", 30);
+	
+	Bureaucrat B1("Ishak", 10);
 	RobotomyRequestForm robot("Document");
 	try
 	{
-		// robot.beSigned(B1);
+		robot.beSigned(B1);
 		robot.execute(B1);
+		B1.executeForm(robot);
 	}
 	catch(const std::exception& e)
 	{
@@ -51,6 +53,5 @@ int main()
 	{
 		std::cerr << e.what();
 	}
-	
 	
 }

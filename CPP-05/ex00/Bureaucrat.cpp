@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 20:33:15 by izail             #+#    #+#             */
-/*   Updated: 2022/10/29 15:15:43 by izail            ###   ########.fr       */
+/*   Updated: 2022/11/03 20:32:40 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,17 @@ Bureaucrat::Bureaucrat() : name("noName"), grade(1)
 Bureaucrat::Bureaucrat(const std::string _name, int _grade) : name(_name), grade(_grade)
 {
     std::cout << "Param constructor called\n";
-    try
-    {
-        if (this->grade  < 1)
-            throw (GradeTooHighException());
-        else if (this->grade > 150)
-            throw(GradeTooLowException());
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what();
-    }
+    if (this->grade  < 1)
+        throw (GradeTooHighException());
+    else if (this->grade > 150)
+        throw(GradeTooLowException());
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& obj)
 {
     std::cout << "Copy constructor called\n";
     *this = obj;
-    const_cast<std::string&>(this->name) += "_copy";
+    // const_cast<std::string&>(this->name) += "_copy";
 }
 
 Bureaucrat & Bureaucrat::operator=(const Bureaucrat & obj)
@@ -45,7 +38,7 @@ Bureaucrat & Bureaucrat::operator=(const Bureaucrat & obj)
     std::cout << "Copy assigment operator called" << std::endl;
     if(this != &obj)
     {
-        const_cast<std::string&>(this->name) = obj.name;
+        // const_cast<std::string&>(this->name) = obj.name;
         this->grade = obj.grade;     
     }
     return (*this);
@@ -63,30 +56,16 @@ std::string Bureaucrat::getName() const
 
 void   Bureaucrat::incrementBureacrat()
 {
-    try
-    {
-        this->grade--;
-        if (this->grade  < 1)
-            throw (GradeTooHighException());
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what();
-    }
+    if (this->grade - 1  < 1 || this->grade > 150)
+        throw (GradeTooHighException());
+    this->grade--;
 }
 
 void   Bureaucrat::decrementBureacrat()
 {
-    try
-    {
-        this->grade++;
-        if (this->grade > 150)
-            throw (GradeTooLowException());
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
+    if (this->grade + 1 > 150 || this->grade < 1)
+        throw (GradeTooLowException());
+    this->grade++;
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw()
