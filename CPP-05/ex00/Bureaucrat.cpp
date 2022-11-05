@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 20:33:15 by izail             #+#    #+#             */
-/*   Updated: 2022/11/03 20:32:40 by izail            ###   ########.fr       */
+/*   Updated: 2022/11/04 20:54:20 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat& obj)
 {
     std::cout << "Copy constructor called\n";
     *this = obj;
-    // const_cast<std::string&>(this->name) += "_copy";
 }
 
 Bureaucrat & Bureaucrat::operator=(const Bureaucrat & obj)
@@ -38,7 +37,6 @@ Bureaucrat & Bureaucrat::operator=(const Bureaucrat & obj)
     std::cout << "Copy assigment operator called" << std::endl;
     if(this != &obj)
     {
-        // const_cast<std::string&>(this->name) = obj.name;
         this->grade = obj.grade;     
     }
     return (*this);

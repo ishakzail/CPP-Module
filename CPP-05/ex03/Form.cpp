@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:53:38 by izail             #+#    #+#             */
-/*   Updated: 2022/10/27 13:47:44 by izail            ###   ########.fr       */
+/*   Updated: 2022/11/04 20:53:26 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,10 +111,7 @@ Form & Form::operator=(const Form& obj)
     std::cout << "Copy assignment operator called by FORM" << std::endl;
     if (this != &obj)
     {
-        const_cast<std::string&>(this->name) = obj.name;
         this->_signed = obj._signed;
-        const_cast<unsigned int&>(this->execute_grade) = obj.execute_grade;
-        const_cast<unsigned int&>(this->sign_grade) = obj.sign_grade;
     }
     return (*this);
 }

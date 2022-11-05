@@ -6,12 +6,12 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 11:41:28 by izail             #+#    #+#             */
-/*   Updated: 2022/10/27 14:20:59 by izail            ###   ########.fr       */
+/*   Updated: 2022/11/03 20:47:18 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef _CLASS_INTERN_HPP
-# define _CLASS_INTERN_HPP
+# ifndef CLASS_INTERN_HPP
+# define CLASS_INTERN_HPP
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
