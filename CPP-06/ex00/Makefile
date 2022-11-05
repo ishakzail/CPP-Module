@@ -6,7 +6,7 @@
 #    By: izail <izail@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/31 10:07:16 by izail             #+#    #+#              #
-#    Updated: 2022/11/02 18:08:33 by izail            ###   ########.fr        #
+#    Updated: 2022/11/05 14:24:08 by izail            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRC = Conversion.cpp main.cpp
 
 HEADER = Conversion.hpp
 
-%.o : %.cpp 
+%.o : %.cpp $(HEADER)
 	 $(CC) $(FLAGS) -c -o $@ $<
 
 OBJ = $(SRC:%.cpp=%.o)
@@ -31,9 +31,9 @@ $(NAME) : $(OBJ) $(HEADER)
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	@rm -f $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	@rm -f convert
+	rm -f convert
 
 re: fclean all
