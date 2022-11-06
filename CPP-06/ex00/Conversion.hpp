@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 10:07:10 by izail             #+#    #+#             */
-/*   Updated: 2022/11/05 13:00:46 by izail            ###   ########.fr       */
+/*   Updated: 2022/11/06 21:33:51 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ class Conversion
         std::string inp;
     public :
         Conversion();
-        // Conversion(std::string _inp);
-        // Conversion(char *_inp);
         Conversion(const Conversion &obj);
         Conversion & operator=(const Conversion &obj);
         ~Conversion();

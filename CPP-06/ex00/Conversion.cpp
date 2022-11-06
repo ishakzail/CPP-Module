@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 10:07:08 by izail             #+#    #+#             */
-/*   Updated: 2022/11/06 17:44:47 by izail            ###   ########.fr       */
+/*   Updated: 2022/11/06 21:49:48 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,11 @@ std::string check_float(std::string input)
 {
 	int count = 0;
 	size_t i = 0;
-	std::cout << "input " << input<< std::endl;
 	if (!isdigit(input.at(input.size() - 2)) )
 		return "invalid";
 	while (i < input.size() - 1)
 	{
-		if (input.at(0) == '-' || input.at(0) == '+')
+		if (input.at(i) == '-' || input.at(i) == '+')
 			i++;
 		if (input.at(i) == '.')
 			count++;
@@ -55,13 +54,18 @@ std::string check_double(std::string input)
 {
 	int count = 0;
 	size_t i = 0;
-	std::cout << "input == " << input << std::endl;
 	if (!isdigit(input.at(input.size() - 1)) )
+	{
+		std::cout << "dd";
 		return "invalid";
+	}
 	while (i < input.size())
 	{
-		if (input.at(0) == '-' || input.at(0) == '+')
+		if (input.at(i) == '-' || input.at(i) == '+')
+		{
+			std::cout << "here\n";
 			i++;
+		}
 		if (input.at(i) == '.')
 			count++;
 		if(!isdigit(input.at(i)))
@@ -110,17 +114,6 @@ std::string Conversion::getType(std::string input)
     else
 		return ("invalid");
 }
-
-// Conversion::Conversion(char *_inp)
-// {
-//     inp = (_inp);
-    
-//     // check_input(inp);
-//     // to_char(inp);
-//     // to_int(inp);
-//     // to_float(inp);
-//     // to_double(inp);
-// }
 
 void Conversion::converter(std::string type, std::string input)
 {
@@ -186,7 +179,7 @@ void		Conversion::float_to_all(float f) {
 	else
 		std::cout << "int: " << static_cast<int>(f) << std::endl;
 	
-	std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+	std::cout << "float: " << std::fixed <<std::setprecision(1) << f << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(f) << std::endl;
 }
 
@@ -209,62 +202,5 @@ void    Conversion::double_to_all(double d) {
 	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(d) << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
 }
-
-// void Conversion::to_char(std::string inp)
-// {
-//     try
-//     {
-//         if(!isprint(stoi(inp)))
-//             std::cout << "char : Non displayable\n";
-//         else 
-//             std::cout << "char: '" << static_cast<char>(stoi(inp)) << "'"<< std::endl;
-//     }
-//     catch(const std::exception& e)
-//     {
-//         std::cerr << "char : impossible" << '\n';
-//     }
-    
-// }
-
-// void Conversion::to_int(std::string inp)
-// {
-//     try
-//     {
-//         int nbr = std::stoi(inp);
-//         std::cout << "int : " <<  (nbr) << std::endl;
-//     }
-//     catch(...)
-//     {
-//         std::cerr << "int : impossible" << '\n';
-//     }
-// }
-
-// void Conversion::to_float(std::string inp)
-// {
-//     try
-//     {
-//         float nbr = std::stof(inp);
-//         std::cout << std::fixed << std::setprecision(1);
-//         std::cout << "float : " <<  (nbr) << "f"<< std::endl;
-//     }
-//     catch(...)
-//     {
-//         std::cerr << "float : impossible" << '\n';
-//     }
-// }
-
-// void Conversion::to_double(std::string inp)
-// {
-//     try
-//     {
-//         float nbr = std::stod(inp);
-//         std::cout << std::fixed << std::setprecision(1);
-//         std::cout << "double : " << (nbr) << std::endl;
-//     }
-//     catch(...)
-//     {
-//         std::cerr << "double : impossible" << '\n';
-//     }
-// }
 
 Conversion::~Conversion() {}

@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 10:07:14 by izail             #+#    #+#             */
-/*   Updated: 2022/11/05 16:13:16 by izail            ###   ########.fr       */
+/*   Updated: 2022/11/06 21:43:57 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,11 @@ int main(int ac, char **av)
     {
         std::string argument = static_cast<std::string>(av[1]);
         std::string _type = convert.getType(av[1]);
-        std::cout << "type == " <<_type << std::endl;
         convert.converter(_type, argument);
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
-    
-    
-    
     return 0;
 }
