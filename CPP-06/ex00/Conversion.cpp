@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 10:07:08 by izail             #+#    #+#             */
-/*   Updated: 2022/11/05 18:30:40 by izail            ###   ########.fr       */
+/*   Updated: 2022/11/06 17:44:47 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,24 +32,22 @@ std::string check_float(std::string input)
 {
 	int count = 0;
 	size_t i = 0;
-	std::cout << "input size -1 == " << input.size() - 1 << std::endl;
+	std::cout << "input " << input<< std::endl;
+	if (!isdigit(input.at(input.size() - 2)) )
+		return "invalid";
 	while (i < input.size() - 1)
 	{
-		std::cout << i << std::endl;
 		if (input.at(0) == '-' || input.at(0) == '+')
 			i++;
 		if (input.at(i) == '.')
-		{
 			count++;
-			i++;
-		}
 		if(!isdigit(input.at(i)))
-		{
 			if (!(input.at(i) == '.' && count <= 1))
 				return "invalid";
-		}
 		i++;
 	}
+	if (count == 0)
+		return "invalid";
 	return ("float");
 }
 
@@ -57,23 +55,18 @@ std::string check_double(std::string input)
 {
 	int count = 0;
 	size_t i = 0;
-	while (i < input.size() - 1)
+	std::cout << "input == " << input << std::endl;
+	if (!isdigit(input.at(input.size() - 1)) )
+		return "invalid";
+	while (i < input.size())
 	{
-		std::cout << i << std::endl;
 		if (input.at(0) == '-' || input.at(0) == '+')
 			i++;
 		if (input.at(i) == '.')
-		{
 			count++;
-			// i++;
-		}
 		if(!isdigit(input.at(i)))
-		{
-			if (input.at(i) == '.' && count <= 1)
-				i++;	
-			else
+			if (!(input.at(i) == '.' && count <= 1))
 				return "invalid";
-		}
 		i++;
 	}
 	return ("double");
@@ -81,18 +74,15 @@ std::string check_double(std::string input)
 
 std::string Conversion::getType(std::string input)
 {
-	size_t i = -1;
-	while (++i < input.size())
-		std::cout << "char " << i << " == "<< input.at(i) <<std::endl;
     if (input == "-inf" || input == "+inf" || input == "nan")
 		return ("double");
+	else if (input == "-inff" || input == "+inff" || input == "nanf")
+		return ("float");
 	else if (input.length() > 3 && input.at(input.length() - 1) == 'f' )
 	{
 		return (check_float(input));
 	}
-	else if (input == "-inff" || input == "+inff" || input == "nanf")
-		return ("float");
-	else if (input.length() > 2 && input.find('.') != std::string::npos && isdigit(input.at(input.length() - 1)))
+	else if (input.length() > 2 && input.find('.') != std::string::npos)
 	{
 		return (check_double(input));
 	}
@@ -215,9 +205,8 @@ void    Conversion::double_to_all(double d) {
 	
 	if (d > __FLT_MAX__ || d < __FLT_MIN__ || d != d)
 		std::cout << "float: impossible" << std::endl;
-	else
-		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(d) << "f" << std::endl;
 
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(d) << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << d << std::endl;
 }
 
