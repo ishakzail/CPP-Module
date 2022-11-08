@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 10:04:23 by izail             #+#    #+#             */
-/*   Updated: 2022/11/07 14:33:21 by izail            ###   ########.fr       */
+/*   Updated: 2022/11/08 19:12:12 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int main()
     uintptr_t uintptr;
 
 	Data data;
-	data.i = 42;
-	data.c = 'a';
+	data.i = 13;
+	data.c = 't';
 
 	std::cout << "i: " << data.i << std::endl;
 	std::cout << "c: " << data.c << std::endl;
@@ -31,7 +31,6 @@ int main()
 	Data *data_ds;
 	data_ds = deserialize(uintptr);
 
-	std::cout << "& data_ds: " << &data_ds << std::endl;
 	std::cout << "new i: " << data_ds->i << std::endl;
 	std::cout << "new c: " << data_ds->c << std::endl;  
     return (0);
