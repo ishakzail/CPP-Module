@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:04:21 by izail             #+#    #+#             */
-/*   Updated: 2022/11/10 15:52:58 by izail            ###   ########.fr       */
+/*   Updated: 2022/11/12 08:22:20 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,27 +39,5 @@ T max(T &a, T &b)
     else
         return b;
 }
-
-class Whatever
-{
-    private:
-        int nbr;
-    public :
-        Whatever() : nbr(0) {}
-        Whatever(int _nbr) : nbr(_nbr) {}
-        int getNbr() const { return nbr; }
-        Whatever &operator=(const Whatever & obj) {nbr = obj.nbr; return *this;}
-        bool operator==(const Whatever &obj) const {return (nbr == obj.nbr);}
-        bool operator!=(const Whatever &obj) const {return (nbr != obj.nbr);}
-        bool operator<=(const Whatever &obj) const {return (nbr <= obj.nbr);}
-        bool operator>=(const Whatever &obj) const {return (nbr >= obj.nbr);}
-        bool operator>(const Whatever &obj) const {return (nbr > obj.nbr);}
-        bool operator<(const Whatever &obj) const {return (nbr < obj.nbr);}
-
-        
-        ~Whatever(){}
-};
-
-std::ostream& operator<<(std::ostream& out, const Whatever& obj) { out << obj.getNbr(); return out; }
 
 #endif

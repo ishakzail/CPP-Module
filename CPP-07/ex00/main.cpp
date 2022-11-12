@@ -6,13 +6,13 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 00:04:15 by izail             #+#    #+#             */
-/*   Updated: 2022/11/10 15:52:56 by izail            ###   ########.fr       */
+/*   Updated: 2022/11/12 10:29:51 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Whatever.hpp"
 
-int main()
+int main(void)
 {
     double a = 2.98;
     double b = 345.21;
@@ -28,5 +28,4 @@ int main()
     std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
     
     return 0;
-
 }
