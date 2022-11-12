@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 11:59:27 by izail             #+#    #+#             */
-/*   Updated: 2022/11/10 17:22:19 by izail            ###   ########.fr       */
+/*   Updated: 2022/11/12 10:35:01 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,19 @@ void iter(T *arr, int arrLenght, void (*f)(T&))
     }
 }
 
+template <typename T> 
+void iter(T const *arr, int arrLenght, void (*f)(T const &))
+{
+    for (int i = 0; i < arrLenght; i++)
+    {
+        (*f)(arr[i]);
+    }
+}
+
 template <typename T>
 void  printIter(T &elem)
 {
 	std::cout << elem << std::endl;
-}
-
-class Iter
-{
-    private :
-        int nbr;
-    public :
-        Iter() : nbr(8){std::cout <<"Default const";}
-        Iter(int _nbr) : nbr(_nbr) {std::cout <<"Param const";}
-        int getNbr() { return nbr;}
-        ~Iter(){}
-    
-};
-
-std::ostream& operator<<(std::ostream& out , Iter& var)
-{
-	out << var.getNbr();
-	return out;
 }
 
 #endif
