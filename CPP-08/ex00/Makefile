@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: izail < izail@student.1337.ma >            +#+  +:+       +#+         #
+#    By: izail <izail@student.1337.ma>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/13 06:21:42 by izail             #+#    #+#              #
-#    Updated: 2022/11/13 06:22:12 by izail            ###   ########.fr        #
+#    Created: 2022/11/12 15:17:30 by izail             #+#    #+#              #
+#    Updated: 2022/11/13 15:35:11 by izail            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRC =  main.cpp
 
-HEADER = easy.hpp
+HEADER = easyfind.hpp
 
 %.o : %.cpp $(HEADER)
 	 $(CC) $(FLAGS) -c -o $@ $<

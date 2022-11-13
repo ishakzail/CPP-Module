@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: izail < izail@student.1337.ma >            +#+  +:+       +#+        */
+/*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 06:21:39 by izail             #+#    #+#             */
-/*   Updated: 2022/11/13 07:01:20 by izail            ###   ########.fr       */
+/*   Created: 2022/11/12 15:17:32 by izail             #+#    #+#             */
+/*   Updated: 2022/11/13 15:42:21 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easy.hpp"
+#include "easyfind.hpp"
 
 int main()
 {
@@ -28,7 +28,10 @@ int main()
     vec.push_back('c');
     vec.push_back('d');
 
-    easyfind(vec, 48);
+    // std::cout << "vec 1 == " << vec[4] << '\n';
+    if(easyfind(vec, 6))
+        std::cout << "found at pos == " << easyfind(vec, 6) << '\n';
+    
 
      
 }
