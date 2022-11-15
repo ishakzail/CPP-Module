@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.1337.ma>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 16:59:55 by izail             #+#    #+#             */
-/*   Updated: 2022/11/14 21:52:53 by izail            ###   ########.fr       */
+/*   Updated: 2022/11/15 13:02:12 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@ int main()
     try
     {
         // std::vector<int> vec2(10, 42);
-        Span sp = Span(15);
+        // Span sp = Span(5);
+        // sp.addNumber(6);
+        // sp.addNumber(3);
+        // sp.addNumber(17);
+        // sp.addNumber(9);
+        // sp.addNumber(11);
+        Span sp = Span(10);
         {
             sp.addNumber(6);
             sp.addNumber(3);
