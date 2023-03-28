@@ -6,13 +6,14 @@
 /*   By: izail <izail@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:30:24 by izail             #+#    #+#             */
-/*   Updated: 2023/03/27 17:32:28 by izail            ###   ########.fr       */
+/*   Updated: 2023/03/28 00:50:41 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/BitcoinExchange.hpp"
 
 std::string _error;
+int count = 0;
 
 BitcoinExchange::BitcoinExchange(std::string _filename) :  _linesInput(0) , _linesCSV(0)
 {
@@ -48,7 +49,7 @@ void    BitcoinExchange::readCsvFile(std::string _csvFile)
 void    BitcoinExchange::readInputFile(std::string _inputFile)
 {
     std::string line;
-    int         lineNumber = 0;
+
     std::ifstream _file(_inputFile);
     if (_file.peek() == EOF)
     {
@@ -57,13 +58,33 @@ void    BitcoinExchange::readInputFile(std::string _inputFile)
     }
     while(std::getline(_file, line))
     {
-        lineNumber++;
-        if (lineNumber == 1)
+        std::cout << "getline == " << line << std::endl; 
+        // std::cout << "isHeader == " << isHeader(line)  << std::endl; 
+        if (line == "\n")
             continue;
-        parseInputLine(line);
+        // else
+            parseInputLine(line);
     }
-        // std::cout << line << std::endl;
-        // check 
+}
+
+int isHeader(std::string &head)
+{
+    std::string date;
+    std::string value;
+    
+    date = ft_trim(head.substr(0, head.find("|")));
+    value = ft_trim(head.substr(head.find("|") + 1, head.length()));
+    
+    // std::cout << "date--" << date << std::endl;
+    // std::cout << "value--" << value << std::endl;
+
+    if (!date.compare("date") && !value.compare("value"))
+    {
+        count++;
+        return (count);
+        
+    }
+    return (EXIT_SUCCESS);    
 }
 
 std::string ft_trim(std::string _line)
@@ -94,6 +115,7 @@ void    BitcoinExchange::checkInputLine(std::string date, float value)
 }
 
 
+
 void    BitcoinExchange::proccessExchange(std::string date, float value)
 {
     // (void)date;
@@ -115,6 +137,11 @@ int    BitcoinExchange::checkValue(float _value)
         return(EXIT_SUCCESS);
     }
     return (EXIT_FAILURE);
+}
+
+void  BitcoinExchange::parseHeader(std::string line)
+{
+    std::cout << "parseHeader ----" << line << std::endl;
 }
 
 int    BitcoinExchange::parseDate(std::string date)
@@ -165,20 +192,19 @@ int     BitcoinExchange::checkMonthDay(int _month, int _day)
     else
         return (EXIT_SUCCESS);
 }
-// void    parseValue(float _value)
-// {
-    
-// }
+
 
 void    BitcoinExchange::parseInputLine(std::string _inputLine)
 {
-    // std::cout << _inputLine.at(_inputLine.length()-1);
     std::string date;
     std::string value;
-
-    // std::cout << _inputLine  << std::endl;
     
-    if (_inputLine.find("|") != std::string::npos)
+    if (isHeader(_inputLine) == 1)
+    {
+            // parseHeader(line);
+        return;
+    }
+    else if (_inputLine.find("|") != std::string::npos)
     {
         date    = ft_trim(_inputLine.substr(0, _inputLine.find("|")));
         value   = ft_trim(_inputLine.substr(_inputLine.find("|")+ 1, _inputLine.length()));
