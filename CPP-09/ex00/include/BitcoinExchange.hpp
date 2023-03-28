@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:30:26 by izail             #+#    #+#             */
-/*   Updated: 2023/03/27 17:42:51 by izail            ###   ########.fr       */
+/*   Updated: 2023/03/28 00:41:08 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,10 @@ class BitcoinExchange
         int     checkMonth(int _month);
         int     checkMonthDay(int _month, int _day);
 
-        void    parseHeader();
+        void    parseHeader(std::string line);
 
         ~BitcoinExchange();
       
 };
         std::string ft_trim(std::string _line);
+        int isHeader(std::string &line );
