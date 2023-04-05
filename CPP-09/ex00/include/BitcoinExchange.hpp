@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: izail <izail@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ishak <ishak@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:30:26 by izail             #+#    #+#             */
-/*   Updated: 2023/03/28 00:41:08 by izail            ###   ########.fr       */
+/*   Updated: 2023/03/31 23:26:24 by ishak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 #include <iostream>
 #include <fstream>
-#include <climits> 
+#include <climits>
+#include <cstdlib> 
 #include <map>
 
 
@@ -51,7 +52,7 @@ class BitcoinExchange
         void    parseHeader(std::string line);
 
         ~BitcoinExchange();
+        int isHeader(std::string &line);
       
 };
         std::string ft_trim(std::string _line);
-        int isHeader(std::string &line );

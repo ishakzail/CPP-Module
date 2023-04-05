@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: izail <izail@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ishak <ishak@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:30:24 by izail             #+#    #+#             */
-/*   Updated: 2023/03/28 00:50:41 by izail            ###   ########.fr       */
+/*   Updated: 2023/04/04 22:24:41 by ishak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ BitcoinExchange BitcoinExchange::operator=(const BitcoinExchange &obj)
 void    BitcoinExchange::readCsvFile(std::string _csvFile)
 {
     std::string line;
-    std::ifstream _file(_csvFile);
+    std::ifstream _file(_csvFile.c_str());
     while(std::getline(_file, line))
         storeCsvLines(line);
 }
@@ -49,59 +49,66 @@ void    BitcoinExchange::readCsvFile(std::string _csvFile)
 void    BitcoinExchange::readInputFile(std::string _inputFile)
 {
     std::string line;
+    std::string date;
+    std::string value;
+    int pos;
+    // int count;
 
-    std::ifstream _file(_inputFile);
+    std::ifstream _file(_inputFile.c_str());
     if (_file.peek() == EOF)
     {
         std::cout << "File is empty" << std::endl;
         return;
     }
-    while(std::getline(_file, line))
+    // count = 0;
+    pos = 0;
+    while(std::getline(_file >> std::ws, line))
     {
-        std::cout << "getline == " << line << std::endl; 
-        // std::cout << "isHeader == " << isHeader(line)  << std::endl; 
-        if (line == "\n")
-            continue;
-        // else
-            parseInputLine(line);
+        // std::cout << "getline == " << line << std::endl; 
+        if (pos == 0 && isHeader(line) != 1)
+        {
+            std::cout << "Error : Invalid header" << std::endl;
+            // break;   
+        }
+        parseInputLine(line);
+        pos++;
     }
 }
 
-int isHeader(std::string &head)
+int BitcoinExchange::isHeader(std::string &head)
 {
-    std::string date;
-    std::string value;
+    std::string token_date;
+    std::string token_value;
     
-    date = ft_trim(head.substr(0, head.find("|")));
-    value = ft_trim(head.substr(head.find("|") + 1, head.length()));
-    
-    // std::cout << "date--" << date << std::endl;
-    // std::cout << "value--" << value << std::endl;
 
-    if (!date.compare("date") && !value.compare("value"))
+    token_date = ft_trim(head.substr(0, head.find("|")));
+    token_value = ft_trim(head.substr(head.find("|") + 1, head.length()));
+    
+    // std::cout << "token_date ==" << token_date << std::endl;
+    // std::cout << "token_value ==" << token_value << std::endl;
+    if (!token_date.compare("date") && !token_value.compare("value"))
     {
-        count++;
+        count++;   
         return (count);
-        
     }
+    // else
+    // {
+    //     std::cout << "Error : bad input => " << head << "--" <<std::endl;
+    //     return (EXIT_SUCCESS);
+    // }
     return (EXIT_SUCCESS);    
 }
 
-std::string ft_trim(std::string _line)
+std::string ft_trim(std::string _line) 
 {
-    // find the position of the first non-whitespace character
-    size_t start = _line.find_first_not_of(" \t\n\r");
 
-    // if the string is all whitespace, return an empty string
-    if (start == std::string::npos) {
-        return "";
-    }
-
-    // find the position of the last non-whitespace character
-    size_t end = _line.find_last_not_of(" \t\n\r");
-
-    // extract the trimmed substring
-    return _line.substr(start, end - start + 1);
+    size_t first = _line.find_first_not_of(" \t\n\r");
+	if (first == std::string::npos)
+		return ("");
+	_line.erase(0, first);
+	size_t last = _line.find_last_not_of(" \t\n\r");
+	_line.erase(last + 1);
+	return (_line);
 }
 
 
@@ -152,14 +159,14 @@ int    BitcoinExchange::parseDate(std::string date)
 
     size_t first_delim_pos = date.find('-');  
     size_t second_delim_pos = date.find('-', first_delim_pos + 1);
-
+    
     year = atoi((date.substr(0, first_delim_pos)).c_str());
     month = atoi((date.substr(first_delim_pos + 1, second_delim_pos - first_delim_pos - 1)).c_str());
     day = atoi((date.substr(second_delim_pos + 1)).c_str());
 
     if (checkYear(year) == 0 || checkMonth(month) == 0 || checkMonthDay(month, day) == 0)
     {
-        std::cerr << "Error: Bad input ==> " << date << std::endl;
+        // std::cerr << "Error: Bad input => " << date << std::endl;
         return (EXIT_SUCCESS);
     }
     return (EXIT_FAILURE);
@@ -198,20 +205,24 @@ void    BitcoinExchange::parseInputLine(std::string _inputLine)
 {
     std::string date;
     std::string value;
+
+
+    // std::cout << "HEADER VALUE == " << isHeader(_inputLine) << std::endl;
+        std::cout << "parseInputLine ===" << _inputLine << std::endl;
     
-    if (isHeader(_inputLine) == 1)
-    {
-            // parseHeader(line);
-        return;
-    }
-    else if (_inputLine.find("|") != std::string::npos)
+    // if (isHeader(_inputLine) != 1)
+    // {
+    //     std::cout << "Error: bad input => " << _inputLine  << "--" << std::endl;
+    //     return;
+    // }
+    if (_inputLine.find("|") != std::string::npos)
     {
         date    = ft_trim(_inputLine.substr(0, _inputLine.find("|")));
         value   = ft_trim(_inputLine.substr(_inputLine.find("|")+ 1, _inputLine.length()));
         checkInputLine(date, atof(value.c_str()));
     }
     else
-        std::cout << "Error: bad input => " << _inputLine << std::endl;
+        std::cout << "Error: bad input => " << _inputLine  << "--" << std::endl;
 }
 
 void    BitcoinExchange::storeCsvLines(std::string _csvLine)
