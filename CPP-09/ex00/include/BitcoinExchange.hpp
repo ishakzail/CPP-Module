@@ -6,7 +6,7 @@
 /*   By: ishak <ishak@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:30:26 by izail             #+#    #+#             */
-/*   Updated: 2023/03/31 23:26:24 by ishak            ###   ########.fr       */
+/*   Updated: 2023/04/05 14:39:25 by ishak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ class BitcoinExchange
 
         ~BitcoinExchange();
         int isHeader(std::string &line);
+        int ft_is_digit(std::string str);
+        int ft_is_digit_point(std::string str);
       
 };
         std::string ft_trim(std::string _line);

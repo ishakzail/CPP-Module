@@ -6,7 +6,7 @@
 /*   By: ishak <ishak@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:30:24 by izail             #+#    #+#             */
-/*   Updated: 2023/04/04 22:24:41 by ishak            ###   ########.fr       */
+/*   Updated: 2023/04/05 14:42:47 by ishak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void    BitcoinExchange::readInputFile(std::string _inputFile)
     std::string line;
     std::string date;
     std::string value;
-    int pos;
+    // int pos;
     // int count;
 
     std::ifstream _file(_inputFile.c_str());
@@ -61,17 +61,18 @@ void    BitcoinExchange::readInputFile(std::string _inputFile)
         return;
     }
     // count = 0;
-    pos = 0;
+    // pos = 0;
     while(std::getline(_file >> std::ws, line))
     {
         // std::cout << "getline == " << line << std::endl; 
-        if (pos == 0 && isHeader(line) != 1)
-        {
-            std::cout << "Error : Invalid header" << std::endl;
-            // break;   
-        }
+        // if (pos == 0 && isHeader(line) != 1)
+        // {
+        //     std::cout << "Error : Invalid header" << std::endl;
+        //     // break;   
+        // }
         parseInputLine(line);
-        pos++;
+        // std::cout << "count ==" << count << std::endl;
+        count++;
     }
 }
 
@@ -97,6 +98,27 @@ int BitcoinExchange::isHeader(std::string &head)
     //     return (EXIT_SUCCESS);
     // }
     return (EXIT_SUCCESS);    
+}
+
+int BitcoinExchange::ft_is_digit(std::string str)
+{
+    for(size_t i = 0; i < str.size() ; i++)
+    {
+        if (!std::isdigit(str[i]))
+            return (EXIT_SUCCESS);
+    }
+    return (EXIT_FAILURE);
+}
+
+
+int BitcoinExchange::ft_is_digit_point(std::string str)
+{
+	for( size_t i = 0; i < str.size(); i++)
+	{
+		if (!std::isdigit(str[i]) && str[i] != '.' && str[i] != '-')
+			return (EXIT_SUCCESS);
+	}
+	return (EXIT_FAILURE);
 }
 
 std::string ft_trim(std::string _line) 
@@ -153,18 +175,20 @@ void  BitcoinExchange::parseHeader(std::string line)
 
 int    BitcoinExchange::parseDate(std::string date)
 {
-    int     year;
-    int     month;
-    int     day;
+    std::string     year;
+    std::string     month;
+    std::string     day;
 
     size_t first_delim_pos = date.find('-');  
     size_t second_delim_pos = date.find('-', first_delim_pos + 1);
     
-    year = atoi((date.substr(0, first_delim_pos)).c_str());
-    month = atoi((date.substr(first_delim_pos + 1, second_delim_pos - first_delim_pos - 1)).c_str());
-    day = atoi((date.substr(second_delim_pos + 1)).c_str());
+    year = (date.substr(0, first_delim_pos)).c_str();
+    month = (date.substr(first_delim_pos + 1, second_delim_pos - first_delim_pos - 1)).c_str();
+    day = (date.substr(second_delim_pos + 1)).c_str();
 
-    if (checkYear(year) == 0 || checkMonth(month) == 0 || checkMonthDay(month, day) == 0)
+    if (!ft_is_digit(year) || !ft_is_digit(month) || !ft_is_digit(day))
+        return (EXIT_SUCCESS);
+    if (checkYear(atoi(year.c_str())) == 0 || checkMonth(atoi(month.c_str())) == 0 || checkMonthDay(atoi(month.c_str()), atoi(day.c_str())) == 0)
     {
         // std::cerr << "Error: Bad input => " << date << std::endl;
         return (EXIT_SUCCESS);
@@ -208,7 +232,7 @@ void    BitcoinExchange::parseInputLine(std::string _inputLine)
 
 
     // std::cout << "HEADER VALUE == " << isHeader(_inputLine) << std::endl;
-        std::cout << "parseInputLine ===" << _inputLine << std::endl;
+        // std::cout << "parseInputLine ===" << _inputLine << std::endl;
     
     // if (isHeader(_inputLine) != 1)
     // {
@@ -219,6 +243,19 @@ void    BitcoinExchange::parseInputLine(std::string _inputLine)
     {
         date    = ft_trim(_inputLine.substr(0, _inputLine.find("|")));
         value   = ft_trim(_inputLine.substr(_inputLine.find("|")+ 1, _inputLine.length()));
+        if (count == 0 && date == "date" && value == "value")
+            return;
+        if (count == 0 && (date != "date" || value != "value"))
+        {
+            std::cout << "Error : invalid Header" << std::endl;
+            return;
+        } 
+        // check value here need to be tested
+        if (count != 0 && (!ft_is_digit(value) || !ft_is_digit_point(value) ))
+        {
+            std::cout << "Error: bad input => " << _inputLine  << "*****" << std::endl;
+            return;
+        }
         checkInputLine(date, atof(value.c_str()));
     }
     else
