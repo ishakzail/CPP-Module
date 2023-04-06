@@ -6,7 +6,7 @@
 /*   By: ishak <ishak@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:30:24 by izail             #+#    #+#             */
-/*   Updated: 2023/04/05 14:42:47 by ishak            ###   ########.fr       */
+/*   Updated: 2023/04/05 23:21:11 by ishak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,10 @@ void    BitcoinExchange::proccessExchange(std::string date, float value)
 {
     // (void)date;
     // (void)value;
-    // std::cout << "lower date ======== " << _data.lower_bound(date)->first << std::endl;
+    std::cout << "date ==" << date << std::endl;
+    std::cout << "value ==" << value << std::endl;
+    std::cout << "lower date ======== " << _data.lower_bound(date)->first << std::endl;
+    std::cout << "lower value ======== " << _data.lower_bound(date)->second << std::endl;
     std::cout << date << " ==> " << value << " = " <<  _data.lower_bound(date)->second * value << std::endl;
 }
 
@@ -179,13 +182,15 @@ int    BitcoinExchange::parseDate(std::string date)
     std::string     month;
     std::string     day;
 
+    // check the date here need to be fixed (date.size() should be 10)
+
     size_t first_delim_pos = date.find('-');  
     size_t second_delim_pos = date.find('-', first_delim_pos + 1);
     
     year = (date.substr(0, first_delim_pos)).c_str();
     month = (date.substr(first_delim_pos + 1, second_delim_pos - first_delim_pos - 1)).c_str();
     day = (date.substr(second_delim_pos + 1)).c_str();
-
+    // std::cout << "date ==" << atoi(year.c_str()) << "--" << atoi(month.c_str()) << "--" << atoi(day.c_str()) << std::endl;
     if (!ft_is_digit(year) || !ft_is_digit(month) || !ft_is_digit(day))
         return (EXIT_SUCCESS);
     if (checkYear(atoi(year.c_str())) == 0 || checkMonth(atoi(month.c_str())) == 0 || checkMonthDay(atoi(month.c_str()), atoi(day.c_str())) == 0)
@@ -251,12 +256,16 @@ void    BitcoinExchange::parseInputLine(std::string _inputLine)
             return;
         } 
         // check value here need to be tested
-        if (count != 0 && (!ft_is_digit(value) || !ft_is_digit_point(value) ))
+        // ft_is_digit => 1 in case is digit;
+        if (count != 0 && (ft_is_digit(value) || ft_is_digit_point(value)))
+        {
+            checkInputLine(date, atof(value.c_str()));
+        }
+        else
         {
             std::cout << "Error: bad input => " << _inputLine  << "*****" << std::endl;
             return;
         }
-        checkInputLine(date, atof(value.c_str()));
     }
     else
         std::cout << "Error: bad input => " << _inputLine  << "--" << std::endl;
