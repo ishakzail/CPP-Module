@@ -6,7 +6,7 @@
 /*   By: ishak <ishak@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:30:26 by izail             #+#    #+#             */
-/*   Updated: 2023/04/05 14:39:25 by ishak            ###   ########.fr       */
+/*   Updated: 2023/04/06 13:55:27 by ishak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ class BitcoinExchange
         void    storeCsvLines(std::string _csvLine);
         void    proccessExchange(std::string date, float value);
 
-        void    checkInputLine(std::string date, float value);
+        void    checkInputLine(std::string date, std::string value);
         void    parseInputLine(std::string _inputLine);
-        int     checkValue(float _value);
+        int     checkValue(std::string _value);
         int     parseDate(std::string date);
         int     checkYear(int _year);
         int     checkMonth(int _month);

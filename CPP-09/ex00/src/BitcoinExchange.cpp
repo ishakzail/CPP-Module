@@ -6,13 +6,12 @@
 /*   By: ishak <ishak@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:30:24 by izail             #+#    #+#             */
-/*   Updated: 2023/04/05 23:21:11 by ishak            ###   ########.fr       */
+/*   Updated: 2023/04/06 14:44:50 by ishak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/BitcoinExchange.hpp"
 
-std::string _error;
 int count = 0;
 
 BitcoinExchange::BitcoinExchange(std::string _filename) :  _linesInput(0) , _linesCSV(0)
@@ -51,8 +50,6 @@ void    BitcoinExchange::readInputFile(std::string _inputFile)
     std::string line;
     std::string date;
     std::string value;
-    // int pos;
-    // int count;
 
     std::ifstream _file(_inputFile.c_str());
     if (_file.peek() == EOF)
@@ -60,50 +57,20 @@ void    BitcoinExchange::readInputFile(std::string _inputFile)
         std::cout << "File is empty" << std::endl;
         return;
     }
-    // count = 0;
-    // pos = 0;
     while(std::getline(_file >> std::ws, line))
     {
-        // std::cout << "getline == " << line << std::endl; 
-        // if (pos == 0 && isHeader(line) != 1)
-        // {
-        //     std::cout << "Error : Invalid header" << std::endl;
-        //     // break;   
-        // }
         parseInputLine(line);
-        // std::cout << "count ==" << count << std::endl;
         count++;
     }
 }
 
-int BitcoinExchange::isHeader(std::string &head)
-{
-    std::string token_date;
-    std::string token_value;
-    
-
-    token_date = ft_trim(head.substr(0, head.find("|")));
-    token_value = ft_trim(head.substr(head.find("|") + 1, head.length()));
-    
-    // std::cout << "token_date ==" << token_date << std::endl;
-    // std::cout << "token_value ==" << token_value << std::endl;
-    if (!token_date.compare("date") && !token_value.compare("value"))
-    {
-        count++;   
-        return (count);
-    }
-    // else
-    // {
-    //     std::cout << "Error : bad input => " << head << "--" <<std::endl;
-    //     return (EXIT_SUCCESS);
-    // }
-    return (EXIT_SUCCESS);    
-}
 
 int BitcoinExchange::ft_is_digit(std::string str)
 {
     for(size_t i = 0; i < str.size() ; i++)
     {
+        if (str[0] == '+' || str[0] == '-' )
+            i++;
         if (!std::isdigit(str[i]))
             return (EXIT_SUCCESS);
     }
@@ -115,7 +82,9 @@ int BitcoinExchange::ft_is_digit_point(std::string str)
 {
 	for( size_t i = 0; i < str.size(); i++)
 	{
-		if (!std::isdigit(str[i]) && str[i] != '.' && str[i] != '-')
+        if (str[0] == '+' || str[0] == '-' )
+            i++;
+		if (!std::isdigit(str[i]) && str[i] != '.')
 			return (EXIT_SUCCESS);
 	}
 	return (EXIT_FAILURE);
@@ -134,46 +103,54 @@ std::string ft_trim(std::string _line)
 }
 
 
-void    BitcoinExchange::checkInputLine(std::string date, float value)
+void    BitcoinExchange::checkInputLine(std::string date, std::string value)
 {
-    if (parseDate(date) == 0)
+    if (!parseDate(date))
+    {
+        std::cout << "Error: bad input => " << date << std::endl;
         return;
-    if (checkValue(value) == 0)
+    }
+    if (!checkValue(value))
         return;
-    proccessExchange(date, value);
+    std::cout << date << " ==> " << this->_value << " = " <<  _data.lower_bound(date)->second * this->_value << std::endl;
 }
 
 
-
-void    BitcoinExchange::proccessExchange(std::string date, float value)
+int    BitcoinExchange::checkValue(std::string _value)
 {
-    // (void)date;
-    // (void)value;
-    std::cout << "date ==" << date << std::endl;
-    std::cout << "value ==" << value << std::endl;
-    std::cout << "lower date ======== " << _data.lower_bound(date)->first << std::endl;
-    std::cout << "lower value ======== " << _data.lower_bound(date)->second << std::endl;
-    std::cout << date << " ==> " << value << " = " <<  _data.lower_bound(date)->second * value << std::endl;
-}
-
-int    BitcoinExchange::checkValue(float _value)
-{
-    if (_value < 0)
+    int dotCount = 0;
+    if (_value.empty() || _value.at(0) == '.' || _value.at(_value.size() - 1) == '.')
+	{
+		std::cout << "Error: bad input => " << _value << std::endl;
+		return (EXIT_FAILURE);
+	}
+    for(std::string::iterator it = _value.begin(); it != _value.end(); ++it)
+    {
+        if (*it == '.')
+            dotCount++;   
+    }
+    if (dotCount >= 2)
+    {
+        std::cout << "Error: bad input => " << _value << std::endl;
+		return (EXIT_FAILURE);
+    }
+	if (!ft_is_digit_point(_value))
+	{
+		std::cout << "Error: bad input => " << _value << std::endl;
+		return (EXIT_FAILURE);
+	}
+    this->_value = std::atof(_value.c_str());
+    if (this->_value < 0)
     {
         std::cout << "Error: Not a positive number" << std::endl;
         return (EXIT_SUCCESS);
     }
-    if (_value > 1000)
+    if (this->_value > 1000)
     {
         std::cout << "Error: too large a number" << std::endl;
         return(EXIT_SUCCESS);
     }
     return (EXIT_FAILURE);
-}
-
-void  BitcoinExchange::parseHeader(std::string line)
-{
-    std::cout << "parseHeader ----" << line << std::endl;
 }
 
 int    BitcoinExchange::parseDate(std::string date)
@@ -190,14 +167,14 @@ int    BitcoinExchange::parseDate(std::string date)
     year = (date.substr(0, first_delim_pos)).c_str();
     month = (date.substr(first_delim_pos + 1, second_delim_pos - first_delim_pos - 1)).c_str();
     day = (date.substr(second_delim_pos + 1)).c_str();
-    // std::cout << "date ==" << atoi(year.c_str()) << "--" << atoi(month.c_str()) << "--" << atoi(day.c_str()) << std::endl;
+
+     
+    if (year.size() != 4 || month.size() != 2 || day.size() != 2)
+        return (EXIT_SUCCESS);
     if (!ft_is_digit(year) || !ft_is_digit(month) || !ft_is_digit(day))
         return (EXIT_SUCCESS);
     if (checkYear(atoi(year.c_str())) == 0 || checkMonth(atoi(month.c_str())) == 0 || checkMonthDay(atoi(month.c_str()), atoi(day.c_str())) == 0)
-    {
-        // std::cerr << "Error: Bad input => " << date << std::endl;
         return (EXIT_SUCCESS);
-    }
     return (EXIT_FAILURE);
 }
 
@@ -235,15 +212,6 @@ void    BitcoinExchange::parseInputLine(std::string _inputLine)
     std::string date;
     std::string value;
 
-
-    // std::cout << "HEADER VALUE == " << isHeader(_inputLine) << std::endl;
-        // std::cout << "parseInputLine ===" << _inputLine << std::endl;
-    
-    // if (isHeader(_inputLine) != 1)
-    // {
-    //     std::cout << "Error: bad input => " << _inputLine  << "--" << std::endl;
-    //     return;
-    // }
     if (_inputLine.find("|") != std::string::npos)
     {
         date    = ft_trim(_inputLine.substr(0, _inputLine.find("|")));
@@ -255,11 +223,9 @@ void    BitcoinExchange::parseInputLine(std::string _inputLine)
             std::cout << "Error : invalid Header" << std::endl;
             return;
         } 
-        // check value here need to be tested
-        // ft_is_digit => 1 in case is digit;
         if (count != 0 && (ft_is_digit(value) || ft_is_digit_point(value)))
         {
-            checkInputLine(date, atof(value.c_str()));
+            checkInputLine(date, value);
         }
         else
         {
