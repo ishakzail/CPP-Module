@@ -6,7 +6,7 @@
 /*   By: ishak <ishak@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 22:25:43 by ishak             #+#    #+#             */
-/*   Updated: 2023/04/07 12:22:25 by ishak            ###   ########.fr       */
+/*   Updated: 2023/04/07 21:45:53 by ishak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main (int ac, char ** av){
             return (EXIT_FAILURE);
         }
         RPN RPN(av[1]);
+        RPN.ft_execute();
     }
     catch (std::exception& e){
         std::cout << e.what() << std::endl;

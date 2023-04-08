@@ -6,7 +6,7 @@
 /*   By: ishak <ishak@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 22:26:42 by ishak             #+#    #+#             */
-/*   Updated: 2023/04/07 12:14:14 by ishak            ###   ########.fr       */
+/*   Updated: 2023/04/07 21:59:53 by ishak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@
 class RPN
 {
     private :
-        std::stack<float> myStack;
+        std::stack<int> myStack;
         std::string expression;
     public :
         RPN();
         RPN(std::string str);
-        RPN(const RPN& other);
-        RPN & operator=(const RPN& other);
+        RPN(const RPN& obj);
+        RPN & operator=(const RPN& obj);
         ~RPN();
 
         int checkExpression();

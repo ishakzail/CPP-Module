@@ -6,7 +6,7 @@
 /*   By: ishak <ishak@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 22:26:40 by ishak             #+#    #+#             */
-/*   Updated: 2023/04/07 12:20:57 by ishak            ###   ########.fr       */
+/*   Updated: 2023/04/07 22:00:35 by ishak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ RPN::RPN()
 RPN::RPN(std::string _expression): expression(_expression)
 {}
 
-RPN::RPN(const RPN &copy): myStack(copy.myStack), expression(copy.expression)
+RPN::RPN(const RPN &obj): myStack(obj.myStack), expression(obj.expression)
 {}
 
 // Operators
-RPN & RPN::operator=(const RPN &assign)
+RPN & RPN::operator=(const RPN &obj)
 {
-	if(this != &assign)
+	if(this != &obj)
 	{
-		this->myStack = assign.myStack;
-		this->expression = assign.expression;
+		this->myStack = obj.myStack;
+		this->expression = obj.expression;
 	}
 	return *this;
 }
@@ -48,31 +48,23 @@ int RPN::is_operator(char op)
     return (EXIT_SUCCESS);
 }
 
-// int RPN::checkExpression()
-// {
-//     std::string::iterator it ;
-//     for (it = expression.begin(); it != expression.end(); it++)
-//     {
-//         if (*it == ' ')
-//             continue;
-//         if (!is_operand(*it) && !is_operator(*it))
-//             return (EXIT_SUCCESS);
-//     }
-//     return (EXIT_FAILURE);
-// }
-
 void RPN::ft_execute()
 {
     std::string::iterator it;
     int     val_1 = 0;
     int     val_2 = 0;
-    float   res = 0;
-    float   fval = 0;
-    float   final_value = 0;
+    int   res = 0;
+    int   final_value = 0;
 
     for(it = expression.begin(); it != expression.end(); it++)
     {
-        if (is_operator(*it) && myStack.size() >= 2)
+        
+        if (is_operand(*it))
+        {
+            final_value = *it - '0';
+            myStack.push(final_value);
+        }
+        else if (is_operator(*it) && myStack.size() >= 2)
         {
             val_1 = myStack.top();
             myStack.pop();
@@ -94,12 +86,6 @@ void RPN::ft_execute()
                 res = val_2 / val_1;
             }
             myStack.push(res);
-        }
-        else if (is_operand(*it))
-        {
-            fval = *it - '0';
-            final_value = (float)fval;
-            myStack.push(final_value);
         }
         else if (*it != ' ')
         {
