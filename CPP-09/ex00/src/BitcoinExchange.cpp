@@ -6,7 +6,7 @@
 /*   By: ishak <ishak@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:30:24 by izail             #+#    #+#             */
-/*   Updated: 2023/04/06 14:44:50 by ishak            ###   ########.fr       */
+/*   Updated: 2023/04/06 22:23:04 by ishak            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,8 +158,6 @@ int    BitcoinExchange::parseDate(std::string date)
     std::string     year;
     std::string     month;
     std::string     day;
-
-    // check the date here need to be fixed (date.size() should be 10)
 
     size_t first_delim_pos = date.find('-');  
     size_t second_delim_pos = date.find('-', first_delim_pos + 1);
