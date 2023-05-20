@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishak <ishak@student.42.fr>                +#+  +:+       +#+        */
+/*   By: izail <izail@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 09:57:37 by ishak             #+#    #+#             */
-/*   Updated: 2023/04/08 15:45:39 by ishak            ###   ########.fr       */
+/*   Updated: 2023/05/18 09:51:02 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,12 @@ class PmergeMe
 
         int     ft_is_digit(std::string str);
         void    print_container(std::string _prefix);
-        void    insertion_sort_vector(size_t size);
-        void    insertion_sort_deque(size_t size);
+        void    insertion_sort_vector(int left, int right);
+        void    insertion_sort_deque(int left, int right);
+        void    merge_vector(int left, int mid, int right);
+        void    merge_deque(int left, int mid, int right);
+        void    merge_insertion_sort_vector(int left, int right);
+        void    merge_insertion_sort_deque(int left, int right);
         double    PmergeHandler(char **av, int ac);
         void    print_time();
 
