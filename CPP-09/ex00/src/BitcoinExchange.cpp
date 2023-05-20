@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishak <ishak@student.42.fr>                +#+  +:+       +#+        */
+/*   By: izail <izail@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:30:24 by izail             #+#    #+#             */
-/*   Updated: 2023/04/06 22:23:04 by ishak            ###   ########.fr       */
+/*   Updated: 2023/05/18 11:47:08 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int count = 0;
 
-BitcoinExchange::BitcoinExchange(std::string _filename) :  _linesInput(0) , _linesCSV(0)
+BitcoinExchange::BitcoinExchange(std::string _filename) : _linesCSV(0)
 {
     readCsvFile("data/data.csv");
     readInputFile(_filename);
@@ -30,7 +30,6 @@ BitcoinExchange BitcoinExchange::operator=(const BitcoinExchange &obj)
     if (this != &obj){
         _data = obj._data;
         _linesCSV = obj._linesCSV;
-        _linesInput = obj._linesInput;
         _value = obj._value;
         _date = obj._date;
     }
@@ -41,6 +40,11 @@ void    BitcoinExchange::readCsvFile(std::string _csvFile)
 {
     std::string line;
     std::ifstream _file(_csvFile.c_str());
+    if (!_file.is_open() || !_file.good())
+    {
+        std::cout << "Error opening file." << std::endl;
+        exit(0);
+    }
     while(std::getline(_file, line))
         storeCsvLines(line);
 }
@@ -50,8 +54,13 @@ void    BitcoinExchange::readInputFile(std::string _inputFile)
     std::string line;
     std::string date;
     std::string value;
-
     std::ifstream _file(_inputFile.c_str());
+    
+    if (!_file.is_open() || !_file.good())
+    {
+        std::cout << "Error opening file." << std::endl;
+        return;
+    }
     if (_file.peek() == EOF)
     {
         std::cout << "File is empty" << std::endl;
@@ -63,7 +72,6 @@ void    BitcoinExchange::readInputFile(std::string _inputFile)
         count++;
     }
 }
-
 
 int BitcoinExchange::ft_is_digit(std::string str)
 {
@@ -227,12 +235,12 @@ void    BitcoinExchange::parseInputLine(std::string _inputLine)
         }
         else
         {
-            std::cout << "Error: bad input => " << _inputLine  << "*****" << std::endl;
+            std::cout << "Error: bad input => " << _inputLine  << std::endl;
             return;
         }
     }
     else
-        std::cout << "Error: bad input => " << _inputLine  << "--" << std::endl;
+        std::cout << "Error: bad input => " << _inputLine  << std::endl;
 }
 
 void    BitcoinExchange::storeCsvLines(std::string _csvLine)

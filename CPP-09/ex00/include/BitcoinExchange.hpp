@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ishak <ishak@student.42.fr>                +#+  +:+       +#+        */
+/*   By: izail <izail@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:30:26 by izail             #+#    #+#             */
-/*   Updated: 2023/04/06 13:55:27 by ishak            ###   ########.fr       */
+/*   Updated: 2023/05/18 11:19:14 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <climits>
 #include <cstdlib> 
 #include <map>
+#include <unistd.h>
 
 
 class BitcoinExchange
@@ -25,7 +26,6 @@ class BitcoinExchange
         std::map<std::string, float, std::greater<std::string> >    _data;
         float                           _value;
         std::string                     _date;
-        int                             _linesInput;
         int                             _linesCSV;
     public:
         

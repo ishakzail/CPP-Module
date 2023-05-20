@@ -6,7 +6,7 @@
 /*   By: izail <izail@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/25 13:30:42 by izail             #+#    #+#             */
-/*   Updated: 2023/03/27 17:28:22 by izail            ###   ########.fr       */
+/*   Updated: 2023/05/18 10:36:17 by izail            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int main(int ac, char **av)
     try{
         if (ac != 2)
         {
-            std::cerr << "Not enough parametrs" << std::endl;
+            std::cerr << "Params Error" << std::endl;
             return (0);
         }
         BitcoinExchange btc(av[1]);
